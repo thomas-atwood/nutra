@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608213413) do
+ActiveRecord::Schema.define(:version => 20130611142435) do
+
+  create_table "patients", :force => true do |t|
+    t.boolean "issues_mood"
+    t.boolean "issues_anxiety"
+    t.boolean "issues_stress"
+    t.boolean "issues_memory"
+    t.boolean "issues_headache"
+    t.boolean "issues_sleep"
+    t.boolean "issues_weight_loss"
+    t.boolean "issues_eating_disorder"
+    t.boolean "issues_focus"
+    t.boolean "diagnosed_add_or_adhd"
+    t.boolean "diagnosed_autism_aspbersgers_or_pdd"
+    t.boolean "diagnosed_bipolar"
+    t.boolean "diagnosed_schizophrenia"
+    t.boolean "on_medication_for_anxiety"
+    t.boolean "on_medication_for_depression"
+    t.boolean "on_medication_for_chronic_pain"
+    t.boolean "on_medication_for_add_adhd"
+    t.boolean "on_medication_other_brain"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

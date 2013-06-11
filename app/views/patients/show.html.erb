@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Issues mood:</b>
+  <%= @patient.issues_mood %>
+</p>
+
+<p>
+  <b>Issues anxiety:</b>
+  <%= @patient.issues_anxiety %>
+</p>
+
+<p>
+  <b>Issues stress:</b>
+  <%= @patient.issues_stress %>
+</p>
+
+<p>
+  <b>Issues memory:</b>
+  <%= @patient.issues_memory %>
+</p>
+
+<p>
+  <b>Issues headache:</b>
+  <%= @patient.issues_headache %>
+</p>
+
+<p>
+  <b>Issues sleep:</b>
+  <%= @patient.issues_sleep %>
+</p>
+
+<p>
+  <b>Issues weight loss:</b>
+  <%= @patient.issues_weight_loss %>
+</p>
+
+<p>
+  <b>Issues eating disorder:</b>
+  <%= @patient.issues_eating_disorder %>
+</p>
+
+<p>
+  <b>Issues focus:</b>
+  <%= @patient.issues_focus %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

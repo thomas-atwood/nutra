@@ -1,4 +1,7 @@
 Nutra::Application.routes.draw do
+  resources :patients
+
+
   get "social/parents"
 
   get "social/newsletter"

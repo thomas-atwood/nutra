@@ -1,0 +1,39 @@
+<h1>Listing patients</h1>
+
+<table>
+  <tr>
+    <th>Issues mood</th>
+    <th>Issues anxiety</th>
+    <th>Issues stress</th>
+    <th>Issues memory</th>
+    <th>Issues headache</th>
+    <th>Issues sleep</th>
+    <th>Issues weight loss</th>
+    <th>Issues eating disorder</th>
+    <th>Issues focus</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @patients.each do |patient| %>
+  <tr>
+    <td><%= patient.issues_mood %></td>
+    <td><%= patient.issues_anxiety %></td>
+    <td><%= patient.issues_stress %></td>
+    <td><%= patient.issues_memory %></td>
+    <td><%= patient.issues_headache %></td>
+    <td><%= patient.issues_sleep %></td>
+    <td><%= patient.issues_weight_loss %></td>
+    <td><%= patient.issues_eating_disorder %></td>
+    <td><%= patient.issues_focus %></td>
+    <td><%= link_to 'Show', patient %></td>
+    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+    <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Patient', new_patient_path %>
