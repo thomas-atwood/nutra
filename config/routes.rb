@@ -1,4 +1,24 @@
 Nutra::Application.routes.draw do
+  get "social/parents"
+
+  get "social/newsletter"
+
+  get "social/story"
+
+  get "social/friends"
+
+  get "social/suggestions"
+
+  get "supplement/order"
+
+  get "supplement/list"
+
+  get "supplement/show"
+
+  get "evaluation/show"
+
+  get "evaluation/list"
+
   get "science/show"
 
   get "company/about"

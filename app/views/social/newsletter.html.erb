@@ -1,6 +1,6 @@
 
 <!--	——————————————————————————————————————————————————
-		Company # contact (= contact.new)
+		Social [Networking] # newsletter
 		——————————————————————————————————————————————————
 -->
 <!-- find a way to do this for all views in this controller, rather than one -->
@@ -8,7 +8,7 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
 			$("li.other").addClass("active");
-			$("li.contact").addClass("active")
+			$("li.newsletter").addClass("active")
 		});
 	</script>
 <% end %>
@@ -19,13 +19,7 @@
 
 <%= content_for :main do %>
 	<section id="standin">
-		<p>[ Standin for the 'Contact' page of the site. ]</p>
+		<p>[ Stand-in for the 'Newsletter' page of the site. ]</p>
 	</section>
-	<section id="contact_form">
-		[ Place contact form here:</br>
-			accept fields</br>
-			either email or </br> 
-			post to database through Company#create_contact
-			 ]
-	</section>
+
 <% end %>

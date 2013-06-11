@@ -9,28 +9,32 @@
 			$("li.profile").addClass("active")
 		});
 	</script>
+	
 <% end %>
 
 <%= content_for :sidebar do %>
 	<ul class="nav nav-list bs-docs-sidenav affix">
-		<li class="active"><a href="#components"><i class="icon-chevron-right"></i>Components</a></li>
-		<li><a href="#plugins"><i class="icon-chevron-right"></i>Choose plugins</a></li>
-		<li><a href="#variables"><i class="icon-chevron-right"></i>Variables</a></li>
+		<li class="active"><a href="#topic1"><i class="icon-chevron-right"></i>Topic 1</a></li>
+		<li><a href="#topic2"><i class="icon-chevron-right"></i>Topic 2</a></li>
+		<li><a href="#topic3"><i class="icon-chevron-right"></i>Topic 3</a></li>
 	</ul>
 <% end %>
 
 <%= content_for :main do %>
-	<section id="components">
-		<h2>Components</h2>
-		<p>[ Info for components goes here ]</p>
+	<section id="standin">
+		<p>[  This is just a stub for the profile page of the site — more specifically profiles#new  ]</p>
 	</section>
-	<section id="plugins">
-		<h2>Plugsin</h2>
-		<p>[ Info for plugins goes here ]</p>
+	<section id="topic1">
+		<h2>Topic 1 </h2>
+		<p>[ Info for topic 1 goes here ]</p>
 	</section>
-	<section id="variables">
-		<h2>Variables</h2>
-		<p>[ Info for variables goes here ]</p>
+	<section id="topic2">
+		<h2>Topic 2</h2>
+		<p>[ Info for topic 2 goes here ]</p>
+	</section>
+	<section id="topic3">
+		<h2>Topic 3</h2>
+		<p>[ Info for topic 3 goes here ]</p>
 	</section>
 <% end %>
 

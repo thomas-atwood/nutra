@@ -255,23 +255,21 @@
 					<li><%= link_to("Your Child", child_show_path) %>
 					<li><%= link_to("Program", program_show_path) %></li>				
 					<li><%= link_to("Profile", profile_new_path) %></li>
-				
-					<li><a href="#about">Evaluation</a></li>
-					<li><a href="#about">Supplements</a></li>
+					<li class="evaluation"><%= link_to("Evaluations", evaluation_show_path) %></li>
+					<li class="supplements"><%= link_to("Supplements", supplement_list_path) %></li>
 					<li><%= link_to("The Science", science_show_path) %></li>
 	                <li class="other dropdown">
 	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<b class="caret"></b></a>
 	                  <ul class="dropdown-menu">
-	                    <li><a href="#">Parent's Support Group</a></li>
-	                    <li><a href="#">Newsletter</a></li>
+						<li class="parents"><%= link_to("Parents Support Group", social_parents_path) %></li>
+						<li class="newsletter"><%= link_to("Newsletter", social_newsletter_path) %></li>
 						<li class="about"><%= link_to("About", company_about_path) %></li>
 						<li class="contact"><%= link_to("Contact", company_contact_path) %></li>
 	                    <li class="divider"></li>
 	                    <li class="nav-header">Get Involved</li>
-						<li><a href="#">Tell Your Story</a></li>
-	                    <li><a href="#">Tell Your Friends</a></li>
-						<li><a href="#">Suggestions</a></li>
-
+						<li class="story"><%= link_to("Tell Your Story", social_story_path) %></li>
+						<li class="friends"><%= link_to("Tell Your Friends", social_friends_path) %></li>
+						<li class="suggestions"><%= link_to("Suggest Stuff", social_suggestions_path) %></li>
 	                  </ul>
 	                </li>
 	              </ul>

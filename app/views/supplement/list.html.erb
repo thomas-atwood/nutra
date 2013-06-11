@@ -1,13 +1,13 @@
-
-<!--	——————————————————————————————————————————————————
-		Child # show
+<!--
+		——————————————————————————————————————————————————
+		Supplement # list
 		——————————————————————————————————————————————————
 -->
 <!-- find a way to do this for all views in this controller, rather than one -->
 <%= content_for :head do %>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-			$("li.child").addClass("active")
+			$("li.supplement").addClass("active")
 		});
 	</script>
 	
@@ -23,8 +23,8 @@
 
 <%= content_for :main do %>
 	<section id="standin">
-		<p>[ This is just a stub for the 'Your Child' page of the site — views/child/show.html.erb ]</p>
-	
+		<p>[  This is just a stub for the Supplements page of the site — more specifically Supplement#list  ]</p>
+		<p>[  Decide whether to use it to explain what individual supplements recommended are/do, or to allow people to purchase them individually from this page of the site ]
 	</section>
 	<section id="topic1">
 		<h2>Topic 1 </h2>
@@ -39,3 +39,4 @@
 		<p>[ Info for topic 3 goes here ]</p>
 	</section>
 <% end %>
+
