@@ -1,0 +1,28 @@
+
+<!--	——————————————————————————————————————————————————
+		Company # contact (= contact.new)
+		——————————————————————————————————————————————————
+-->
+<!-- find a way to do this for all views in this controller, rather than one -->
+<%= content_for :head do %>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			$("li.other").addClass("active");
+			$("li.contact").addClass("active")
+		});
+	</script>
+<% end %>
+
+<%= content_for :sidebar do %>
+
+<% end %>
+
+<%= content_for :main do %>
+	<section id="contact_form">
+		[ Place contact form here:</br>
+			accept fields</br>
+			either email or </br> 
+			post to database through Company#create_contact
+			 ]
+	</section>
+<% end %>

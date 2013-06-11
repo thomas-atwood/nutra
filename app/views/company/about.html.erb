@@ -1,0 +1,48 @@
+
+<!--	——————————————————————————————————————————————————
+		Company # about
+		——————————————————————————————————————————————————
+-->
+<!-- find a way to do this for all views in this controller, rather than one -->
+<%= content_for :head do %>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			$("li.other").addClass("active");
+			$("li.about").addClass("active")
+		});
+	</script>
+<% end %>
+
+<%= content_for :sidebar do %>
+
+<% end %>
+
+<%= content_for :main do %>
+	<section>
+		<div id='company' >
+			<h3>Company</h3>
+			[ Place material on the company and 'story' here. </br>]
+		</div>
+		<div id='team'>
+			<h3>Management Team </h3>
+			[ Place material on the  management team here.</br> ]
+		
+			<div id='Wilson'>
+				<h4 class="name-and-title"><span class="name">Karen-Beth Wilson</span><span class="title"> Chief Executive Officer</span></h4>
+				[ Karen bio here ]
+			</div>
+			<div id="Machemehl">
+				<h4 class="name-and-title"><span class="name">Pam Machemehl Helmly, CN,</span><span class="title"> Chief Clinical Officer</span></h4>
+				<p>[Cut This Down] Pam is a graduate of Texas A&M University with a degree in Scientific Nutrition.  She has worked in the healthcare industry since 1981, beginning as an undergraduate doing research at Texas Children’s Hospital in a study on Juvenile Rheumatoid Arthritis. Pam oversees all aspects of patient care, laboratory findings, formula determinations and technology for Wired-Differently. Previously, Pam acted as the Wellness Director for Peoples Pharmacy in Austin, TX and as a Health Care Administrator for Sanus Healthcare in Houston, Texas. Pam served on the NCAA professional panel for the “Project Yes” Program as the nutritional consultant. She has spoken at numerous industry and academic gatherings and a host of independent seminars. Her topics center on improving physical outcome for professional athletes through nutrition, women’s health issues, nutrition in pharmaceutical settings, PTSD and decreasing ADD/ADHD/ spectrum-like symptoms through nutritional intervention. Pam was also a featured segment on Stay Fit America with former WNBA player Fran Harris on the Fox Network.</p>
+				<p>Pam’s focus on treating the “whole patient” rather than just symptoms or one single biomedical test on a client has improved the outcome of the Wired-Differently patients.  Her passion and the majority of her research are related to neurological disorders. Having completed well over 62,000 neurological urinalysis profiles, Pam is a leader in the field of changing the brain to improve mood, focus, behavior, enhance sports performance, and aid in the treatment of eating disorders. Pam sees a variety of patients from internationally adopted children to professional athletes in her private practice as well as other children and adults desiring to be as healthy as possible. Her greatest desire for the future is to expand her work in improving patient outcomes through proper cellular nutrition, improved gut integrity and balanced brain chemistry. Pam drives laboratories to produce the most technologically advanced testing in a timely manner.</p>
+			<div id='Atwood'>
+				<h4 class="name-and-title"><span class="name">Thomas Atwood</span><span class="title"> Chief Technology Officer</span></h4>
+				[ Tom bio here ]
+			</div>
+		</div>
+		<div id="advisory-board">
+			<h3>Advisory Board</h3>
+			[ Place material on the  advisory here. ]
+		</div>
+	</section>
+<% end %>

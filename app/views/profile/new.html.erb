@@ -1,0 +1,36 @@
+<!--	——————————————————————————————————————————————————
+		Profile # new
+		——————————————————————————————————————————————————
+-->
+<!-- find a way to do this for all views in this controller, rather than one -->
+<%= content_for :head do %>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			$("li.profile").addClass("active")
+		});
+	</script>
+<% end %>
+
+<%= content_for :sidebar do %>
+	<ul class="nav nav-list bs-docs-sidenav affix">
+		<li class="active"><a href="#components"><i class="icon-chevron-right"></i>Components</a></li>
+		<li><a href="#plugins"><i class="icon-chevron-right"></i>Choose plugins</a></li>
+		<li><a href="#variables"><i class="icon-chevron-right"></i>Variables</a></li>
+	</ul>
+<% end %>
+
+<%= content_for :main do %>
+	<section id="components">
+		<h2>Components</h2>
+		<p>[ Info for components goes here ]</p>
+	</section>
+	<section id="plugins">
+		<h2>Plugsin</h2>
+		<p>[ Info for plugins goes here ]</p>
+	</section>
+	<section id="variables">
+		<h2>Variables</h2>
+		<p>[ Info for variables goes here ]</p>
+	</section>
+<% end %>
+

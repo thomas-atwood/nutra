@@ -6,6 +6,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Nutra" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
 
+
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="../assets/js/html5shiv.js"></script>
@@ -15,66 +16,169 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-    <!-- NAVBAR ——————————————————————————————————————————————— -->
-    <div class="navbar-wrapper">
-      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
-      <div class="container">
-
-        <div class="navbar navbar-inverse">
-          <div class="navbar-inner">
-            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="#">NUTRA</a>
-            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="nav-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!-- /.navbar-inner -->
-        </div><!-- /.navbar -->
-
-      </div> <!-- /.container -->
-    </div><!-- /.navbar-wrapper -->
-
-    <div id="main" role="main">
-      <div class="container">
-        <div class="content">
 	
-          <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield :body_main %>
-            </div>
-          </div>
+	  	<!-- Navbar
+	    ———————————————————————————————————————————————————————— -->
+	    <div class="navbar-wrapper">
+	      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+	      <div class="container">
 
-          <footer>
-		     <p class="pull-right"><a href="#">Back to top</a></p>
-		     <p>&copy; 2013 Nutra, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-          </footer>
+	        <div class="navbar navbar-inverse">
+	          <div class="navbar-inner">
+	            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+	            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+	            <!--  <a class="brand" href="#">Wired Differently!</a> -->
+	            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed within .navbar-collapse.collapse. -->
+	            <div class="nav-collapse collapse">
+	              <ul class="nav">
+					<li class="home"><%= link_to("Home", root_path) %>
+					<li class="child"><%= link_to("Your Child", child_show_path) %>
+					<li class="program"><%= link_to("Program", program_show_path) %></li>				
+					<li class="profile"><%= link_to("Profile", profile_new_path) %></li>	        
+					<li><a href="#evaluation">Evaluation</a></li>
+					<li><a href="#supplements">Supplements</a></li>
+					<li class="science"><%= link_to("The Science", science_show_path) %></li>
+					
+	                <li class=" other dropdown">
+	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<b class="caret"></b></a>
+	                  <ul class="dropdown-menu">
+	                    <li><a href="#">Parent's Support Group</a></li>
+	                    <li><a href="#">Newsletter</a></li>
+						<li class="about"><%= link_to("About", company_about_path) %></li>
+						<li class="contact"><%= link_to("Contact", company_contact_path) %></li>
+	                    <li class="divider"></li>
+	                    <li class="nav-header">Get Involved</li>
+						<li><a href="#">Tell Your Story</a></li>
+	                    <li><a href="#">Tell Your Friends</a></li>
+						<li><a href="#">Suggestions</a></li>
 
-        </div> <!-- ! end of .content -->
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
-	<%= yield :end_js %>
-  </body>
+	                  </ul>
+	                </li>
+	              </ul>
+				  <form class="navbar-form pull-right">
+				  	<!-- 
+					<input class="span2" type="text" placeholder="Email">
+				    <input class="span2" type="password" placeholder="Password">
+					-->
+				    <button type="submit" class="btn">Sign in</button>
+				  </form>
+	            </div><!--/.nav-collapse -->
+	          </div><!-- /.navbar-inner -->
+	        </div><!-- /.navbar -->
+
+	      </div> <!-- /.container -->
+	    </div><!-- /.navbar-wrapper -->
+	
+		<!-- Main
+	    ———————————————————————————————————————————————————————— -->
+		<div id="main" role="main">
+      		<div class="container">
+        		<div class="content">
+	
+          			<div class="row">
+						<div class="span3 sidebar">
+							<%= yield :sidebar%>
+						</div>
+            			<div class="span9">
+              				<%= render 'layouts/messages' %>
+              				<%= yield :main %>
+            			</div>
+          			</div>
+
+          			<footer>
+						
+		     			
+						<div class="modal_overlay_links">
+							<p>Copyright &copy; 2013 Nutra, Inc., All rights reserved.
+							<a data-toggle="modal" href="#aboutUs", class="btn btn-link">About Us</a>
+							<a data-toggle="modal" href="#contactUs", class="btn btn-link">Contact Us</a>
+							<a data-toggle="modal" href="#privacyPolicy", class="btn btn-link">Privacy</a>
+							<span class="pull-right"><a href="#">Back to top</a></span>
+							</p>
+							
+						</div>
+		     			
+						
+          			</footer>
+
+        		</div> <!-- ! end of .content -->
+      		</div> <!--! end of .container -->
+    	</div> <!--! end of #main -->
+		
+		<!-- Modal Displays
+	    ———————————————————————————————————————————————————————— -->
+		<div id="aboutUs" class="modal hide fade">
+			
+			<div class="modal-header">
+	    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    		<h2 style="padding-left:20px;">About Us</h2>
+	  		</div>
+	
+	  		<div class="modal-body" style="padding:20px;">
+	    		<%= render '/shared/about_us' %>
+	  		</div>	
+  
+			<div class="modal-footer">
+	    		<a href="#" class="btn">Close</a>
+	  		</div>
+
+		</div>
+
+		<div id="privacyPolicy" class="modal hide fade">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		    <h2 style="padding-left:20px;">Privacy Policy</h2>
+		  </div>
+		  <div class="modal-body" style="padding:20px;">
+		    <%= render '/shared/privacy_policy' %>
+		  </div>
+		  <div class="modal-footer">
+		    <a href="#" class="btn">Close</a>
+		  </div>
+		</div>
+
+		<div id="contactUs" class="modal hide fade">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		    <h2 style="padding-left:20px;">Contact Us</h2>
+		  </div>
+		  <div class="modal-body" style="padding:20px;">
+			<!-- <## render '/company/contact' %> -->
+		    <%= render '/shared/contact_us' %>
+		  </div>
+		  <div class="modal-footer">
+		    <a href="#" class="btn">Close</a>
+		  </div>
+		</div>
+
+
+		<!-- javascript ———————————————————————————————————————— -->
+		
+		<%= yield :end_js %>
+	
+
+		<!-- Gooogle analytics ————————————————————————————————— -->
+
+		<!-- include on all pages so that we can see how
+			 people move through the site -->
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-33258190-1']);
+		  _gaq.push(['_setDomainName', 'degreecouncil.org']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; 
+			ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+		    var s = document.getElementsByTagName('script')[0]; 
+			s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+
+	</body>
 </html>

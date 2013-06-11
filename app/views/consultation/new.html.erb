@@ -1,0 +1,36 @@
+
+<!--	——————————————————————————————————————————————————
+		Consultation # new
+		——————————————————————————————————————————————————
+-->
+<!-- find a way to do this for all views in this controller, rather than one -->
+<%= content_for :head do %>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			$("li.consultation").addClass("active")
+		});
+	</script>
+<% end %>
+
+<%= content_for :sidebar do %>
+	<ul class="nav nav-list bs-docs-sidenav affix">
+		<li class="active"><a href="#initial"><i class="icon-chevron-right"></i>Initial Consultation</a></li>
+		<li><a href="#follow-up"><i class="icon-chevron-right"></i>Follow-Up Consultion</a></li>
+		<li><a href="#special"><i class="icon-chevron-right"></i>Special Consultions</a></li>
+	</ul>
+<% end %>
+
+<%= content_for :main do %>
+	<section id="initial">
+		<h2>Initial Consultation</h2>
+		<p>[ ... picture of RN/CD doing it, and outline of what is discussed ]</p>
+	</section>
+	<section id="follow-up">
+		<h2>Follow-Up Consultations</h2>
+		<p>[ ... picture of RN/CD doing it, and outline of what is discussed ]</p>
+	</section>
+	<section id="special">
+		<h2>Special Consultations</h2>
+		<p>[ ... picture of RN/CD doing it, and outline of what is discussed ]</p>
+	</section>
+<% end %>
