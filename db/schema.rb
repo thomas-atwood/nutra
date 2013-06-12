@@ -11,9 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611142435) do
+ActiveRecord::Schema.define(:version => 20130612023637) do
 
   create_table "patients", :force => true do |t|
+    t.string  "type"
+    t.string  "salutation"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "contact_preference"
+    t.string  "phone"
+    t.integer "when_to_call"
+    t.string  "email"
+    t.string  "skype"
     t.boolean "issues_mood"
     t.boolean "issues_anxiety"
     t.boolean "issues_stress"

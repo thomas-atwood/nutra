@@ -1,19 +1,73 @@
-<%= simple_form_for(@patient) do |f| %>
+<style>
+	.form-horizontal
+	.control-label {
+		width:300px;
+	}
+	label { margin-left:20px; }
+</style>
+
+
+<%= simple_form_for(@patient, :html => {:class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :issues_mood %>
-    <%= f.input :issues_anxiety %>
-    <%= f.input :issues_stress %>
-    <%= f.input :issues_memory %>
-    <%= f.input :issues_headache %>
-    <%= f.input :issues_sleep %>
-    <%= f.input :issues_weight_loss %>
-    <%= f.input :issues_eating_disorder %>
-    <%= f.input :issues_focus %>
-  </div>
+	<ul class="nav nav-tabs">
+		<li class="active"><a href='#problems' data-toggle='tab'>Issues</a></li>
+		<li><a href='#diagnoses' data-toggle='tab'>Diagnoses</a></li>
+		<li><a href='#medications' data-toggle='tab'>Medications</a></li>
+	</ul>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+	<div class="tab-content">
+
+		<div class="tab-pane active" id="problems">
+  			<div class="form-inputs">
+				<!-- 
+				<## f.input :salutation, :collection => salutation_options, as: :radio_buttons, :item_wrapper_class => 'inline' %>
+				<## f.input :first_name %>
+				<## f.input :last_name %>
+				<## f.input :contact_preference, :collection => contact_preference_options, as: :radio_buttons, :item_wrapper_class => 'inline' %>
+				-->
+			    <%= f.input :issues_mood, :as => :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Do you experience mood issues, depression, or unexplained lethargy?" %>
+			    <%= f.input :issues_anxiety, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Do you experience anxiety or nervousness?" %>
+			    <%= f.input :issues_stress, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Have you experienced a large amount of stress at any point in your life?" %>
+			    <%= f.input :issues_memory, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Are you more forgetful than you used to be, or do you have less clarity in your thinking?" %>
+			    <%= f.input :issues_headache, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Do you experience headaches or migraines?" %>
+			    <%= f.input :issues_sleep, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Do you have sleep issues?" %>
+			    <%= f.input :issues_weight_loss, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Do you have problems with weight loss and/or carbohydrate cravings?" %>
+			    <%= f.input :issues_eating_disorder, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Do you have an eating disorder?" %>
+			    <%= f.input :issues_focus, as: :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Do you have focus issues or ADD/ADHD?" %>
+			 </div>
+  		</div>
+
+		<div class="tab-pane" id="diagnoses">
+			<%= f.input :diagnosed_add_or_adhd, :as => :radio_buttons,:item_wrapper_class => 'inline',
+				:label => "Have you been diagnosed as ADD or ADHD?" %>
+			<%= f.input :diagnosed_autism_aspbersgers_or_pdd, :as => :radio_buttons,:item_wrapper_class => 'inline',
+				:label => "Have you been diagnosed with autism, asperbersgers, or PDD?" %>
+				
+			<%= f.input :diagnosed_bipolar, :as => :radio_buttons,:item_wrapper_class => 'inline',
+				:label => "Have you been diagnosed with bipolar disorder?" %>
+				
+			<%= f.input :diagnosed_schizophrenia, :as => :radio_buttons,:item_wrapper_class => 'inline',
+				:label => "Have you been diagnosed with schizophrenia?" %>
+		</div>
+	
+		<div class="tab-pane" id ="medications">
+			<p>Content for the medications window.</p>  	
+			<!-- Note: the 'submit button is on the final panel of the 3-panel form --> 
+	  	 	<div class="form-actions">
+		   		<%= f.button :submit  %>
+		  	</div>
+		</div>
+	
+	</div> <!-- end of class tab-content -->
+
 <% end %>
