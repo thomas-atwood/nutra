@@ -4,6 +4,11 @@
 		width:300px;
 	}
 	label { margin-left:20px; }
+	.clinician_field { margin-left: -40px; }
+	.otherwise { margin-top:20px;}
+	.email_field { margin-left: 0px; }
+	.submit { margin-top:20px;}
+	.optin { font-size: 12px; font-style: italic; }
 </style>
 
 
@@ -14,13 +19,14 @@
 		<li class="active"><a href='#problems' data-toggle='tab'>Issues</a></li>
 		<li><a href='#diagnoses' data-toggle='tab'>Diagnoses</a></li>
 		<li><a href='#medications' data-toggle='tab'>Medications</a></li>
+		<li><a href='#clinician' data-toggle='tab'>Clinician?</a></li>
 	</ul>
 
 	<div class="tab-content">
 
 		<div class="tab-pane active" id="problems">
   			<div class="form-inputs">
-				<!-- 
+				<!--  form panel with contact information? 
 				<## f.input :salutation, :collection => salutation_options, as: :radio_buttons, :item_wrapper_class => 'inline' %>
 				<## f.input :first_name %>
 				<## f.input :last_name %>
@@ -45,27 +51,52 @@
 			    <%= f.input :issues_focus, as: :radio_buttons,:item_wrapper_class => 'inline',
 					:label => "Do you have focus issues or ADD/ADHD?" %>
 			 </div>
+			<!-- May want to add a Next button that take the user to the next tab (and also writes the information on this tab to a database, so that we can either (i) recover a partial state if the same person returns, or (ii) email him/her asking if he/she would like to complete the self-test ) --> 
   		</div>
 
 		<div class="tab-pane" id="diagnoses">
-			<%= f.input :diagnosed_add_or_adhd, :as => :radio_buttons,:item_wrapper_class => 'inline',
-				:label => "Have you been diagnosed as ADD or ADHD?" %>
+			<%= f.input :diagnosed_add_or_adhd, :as => :radio_buttons,:item_wrapper_class => 'inline',				:label => "Have you been diagnosed as ADD or ADHD?" %>
 			<%= f.input :diagnosed_autism_aspbersgers_or_pdd, :as => :radio_buttons,:item_wrapper_class => 'inline',
 				:label => "Have you been diagnosed with autism, asperbersgers, or PDD?" %>
 				
 			<%= f.input :diagnosed_bipolar, :as => :radio_buttons,:item_wrapper_class => 'inline',
 				:label => "Have you been diagnosed with bipolar disorder?" %>
-				
 			<%= f.input :diagnosed_schizophrenia, :as => :radio_buttons,:item_wrapper_class => 'inline',
-				:label => "Have you been diagnosed with schizophrenia?" %>
+					:label => "Have you been diagnosed with schizophrenia?" %>
+			<!-- 'Next' button? -->							
 		</div>
 	
 		<div class="tab-pane" id ="medications">
-			<p>Content for the medications window.</p>  	
-			<!-- Note: the 'submit button is on the final panel of the 3-panel form --> 
+			
+			<%= f.input :on_medication_for_add_adhd, :as => :radio_buttons,:item_wrapper_class => 'inline',
+					:label => "Are you on medication for ADD or ADHD?" %>
+			<%= f.input :on_medication_for_anxiety, :as => :radio_buttons,:item_wrapper_class => 'inline',
+				:label => "Are you on medication for anxiety?" %>
+			<%= f.input :on_medication_for_depression, :as => :radio_buttons,:item_wrapper_class => 'inline',
+				:label => "Are you on medication for depression?" %>
+				
+			<%= f.input :on_medication_for_chronic_pain, :as => :radio_buttons,:item_wrapper_class => 'inline',
+				:label => "Are you on medication for chronic pain?" %>
+				
+			<!-- 'Next' button? -->					  	
+			 	 
+		</div>
+		
+		<div class="tab-pane" id ="clinician">
+			<p>Are you working with an Aurigen-certified clinician or physician?</p> 
+			<div style="margin-left:40px;">
+			<p>If so, please enter his/her id here.<p>
+			<%= f.input :first_name, label: false, placeholder: 'Clinician Id', wrapper_html: { class: 'clinician_field'} %> 
+			<p>Your Brain Wellness Report will be sent to your clinician, who will discuss the results with you. </p>  	
+			</div>
+			<p class="otherwise">Otherwise, please enter your email, and the report will be sent directly to you</p>
+			<%= f.input :email, label: false, placeholder: 'Email address', wrapper_html: { class: 'email_field'} %>
+			
+			<p class="submit">To submit your information, please click here. (*) </p>		
 	  	 	<div class="form-actions">
-		   		<%= f.button :submit  %>
+		   		<%= f.button :submit, 'Submit'  %>
 		  	</div>
+			<p class="optin">(*) By so doing, you confirm that the information provided is correct to the best of your knowledge.</p>
 		</div>
 	
 	</div> <!-- end of class tab-content -->

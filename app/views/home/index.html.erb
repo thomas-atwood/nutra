@@ -5,12 +5,16 @@
     <!-- Hero Image Carousel
     ——————————————————————————————————————————————————————— -->
 
+	<style>
+		div.slide1 h1 { color:black; }
+		div.slide1 p.lead { color:red!important; }
+	</style>
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-        	<%= image_tag("slide-01.jpg") %>
+        	<%= image_tag("slide-1.jpg") %>
           <div class="container">
-            <div class="carousel-caption">
+            <div class="carousel-caption slide1">
               <h1>Is Your Child Wired Differently?</h1>
               <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
               <a class="btn btn-large btn-primary" href="#">Sign up today</a>
