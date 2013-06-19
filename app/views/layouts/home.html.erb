@@ -21,201 +21,147 @@
 	<%= javascript_include_tag "application" %>
     <style>
 
-    /* GLOBAL STYLES
-    -------------------------------------------------- */
-    /* Padding below the footer and lighter body text */
+    	/* GLOBAL STYLES
+	    -------------------------------------------------- */
+	    /* Padding below the footer and lighter body text */
 
-    body {
-      padding-bottom: 40px;
-      color: #5a5a5a;
-    }
-
-
-    /* CUSTOMIZE THE NAVBAR
-    -------------------------------------------------- */
-
-    /* Special class on .container surrounding .navbar, used for positioning it into place. */
-    .navbar-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      margin-top: 20px;
-      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-    }
-    .navbar-wrapper .navbar {
-
-    }
-
-    /* Remove border and change up box shadow for more contrast */
-    .navbar .navbar-inner {
-      border: 0;
-      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-              box-shadow: 0 2px 10px rgba(0,0,0,.25);
-    }
-
-    /* Downsize the brand/project name a bit */
-    .navbar .brand {
-      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
-      font-size: 16px;
-      font-weight: bold;
-      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-    }
-
-    /* Navbar links: increase padding for taller navbar */
-    .navbar .nav > li > a {
-      padding: 15px 20px;
-    }
-
-    /* Offset the responsive button for proper vertical alignment */
-    .navbar .btn-navbar {
-      margin-top: 10px;
-    }
+	    body {
+	      padding-bottom: 40px;
+	      color: #5a5a5a;
+	    }
 
 
+	    /* CUSTOMIZE THE NAVBAR
+	    -------------------------------------------------- */
 
-    /* CUSTOMIZE THE CAROUSEL
-    -------------------------------------------------- */
+	    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+	    .navbar-wrapper {
+	      position: absolute;
+	      top: 0;
+	      left: 0;
+	      right: 0;
+	      z-index: 10;
+	      margin-top: 20px;
+	      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+	    }
+	    .navbar-wrapper .navbar {
 
-    /* Carousel base class */
-    .carousel {
-      margin-bottom: 60px;
-    }
+	    }
 
-    .carousel .container {
-      position: relative;
-      z-index: 9;
-    }
+	    /* Remove border and change up box shadow for more contrast */
+	    .navbar .navbar-inner {
+	      border: 0;
+	      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+	         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+	              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+	    }
 
-    .carousel-control {
-      height: 80px;
-      margin-top: 0;
-      font-size: 120px;
-      text-shadow: 0 1px 1px rgba(0,0,0,.4);
-      background-color: transparent;
-      border: 0;
-      z-index: 10;
-    }
+	    /* Downsize the brand/project name a bit */
+	    .navbar .brand {
+	      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+	      font-size: 16px;
+	      font-weight: bold;
+	      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+	    }
 
-    .carousel .item {
-      height: 500px;
-    }
-    .carousel img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      height: 500px;
-    }
+	    /* Navbar links: increase padding for taller navbar */
+	    .navbar .nav > li > a {
+	      padding: 15px 20px;
+	    }
 
-    .carousel-caption {
-      background-color: transparent;
-      position: static;
-      max-width: 650px;
-      padding: 0 20px;
-      margin-top: 200px;
-    }
-    .carousel-caption h1,
-    .carousel-caption .lead {
-      margin: 0;
-      line-height: 1.25;
-      color: #fff;
-      text-shadow: 0 1px 1px rgba(0,0,0,.4);
-    }
-    .carousel-caption .btn {
-      margin-top: 10px;
-    }
+	    /* Offset the responsive button for proper vertical alignment */
+	    .navbar .btn-navbar {
+	      margin-top: 10px;
+	    }
 
+	 /* MARKETING CONTENT
+	    -------------------------------------------------- */
 
-
-    /* MARKETING CONTENT
-    -------------------------------------------------- */
-
-    /* Center align the headings within the three columns below the carousel */
-    .marketing .span4 {
-      text-align: left;
-    }
-    .marketing h2 {
-      font-weight: normal;
-	  text-align:left; padding-left:10px;
-    }
-    .marketing .span4 p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
+	    /* Center align the headings within the three columns below the carousel */
+	    .marketing .span4 {
+	      text-align: left;
+	    }
+	    .marketing h2 {
+	      font-weight: normal;
+		  text-align:left; padding-left:10px;
+	    }
+	    .marketing .span4 p {
+	      margin-left: 10px;
+	      margin-right: 10px;
+	    }
  
-    /* RESPONSIVE CSS
-    -------------------------------------------------- */
+	    /* RESPONSIVE CSS
+	    -------------------------------------------------- */
 
-    @media (max-width: 979px) {
+	    @media (max-width: 979px) {
 
-      .container.navbar-wrapper {
-        margin-bottom: 0;
-        width: auto;
-      }
-      .navbar-inner {
-        border-radius: 0;
-        margin: -20px 0;
-      }
+	      .container.navbar-wrapper {
+	        margin-bottom: 0;
+	        width: auto;
+	      }
+	      .navbar-inner {
+	        border-radius: 0;
+	        margin: -20px 0;
+	      }
 
-      .carousel .item {
-        height: 500px;
-      }
-      .carousel img {
-        width: auto;
-        height: 500px;
-      }
+	      .carousel .item {
+	        height: 500px;
+	      }
+	      .carousel img {
+	        width: auto;
+	        height: 500px;
+	      }
 
      
-    }
+	    }
 
-	/* FOOTER
-    -------------------------------------------------- */
-	footer { 
-			margin-top:40px; 
-			border-top: 1px solid gray; 
-			padding-top: 20px;
-	}
+		/* FOOTER
+	    -------------------------------------------------- */
+		footer { 
+				margin-top:40px; 
+				border-top: 1px solid gray; 
+				padding-top: 20px;
+				padding-bottom: 20px;
+				background-color:#FFFEF3;
+		}
 
-    @media (max-width: 767px) {
+	    @media (max-width: 767px) {
 
-      .navbar-inner {
-        margin: -20px;
-      }
+	      .navbar-inner {
+	        margin: -20px;
+	      }
 
-      .carousel {
-        margin-left: -20px;
-        margin-right: -20px;
-      }
-      .carousel .container {
+	      .carousel {
+	        margin-left: -20px;
+	        margin-right: -20px;
+	      }
+	      .carousel .container {
 
-      }
-      .carousel .item {
-        height: 300px;
-      }
-      .carousel img {
-        height: 300px;
-      }
-      .carousel-caption {
-        width: 65%;
-        padding: 0 70px;
-        margin-top: 100px;
-      }
-      .carousel-caption h1 {
-        font-size: 30px;
-      }
-      .carousel-caption .lead,
-      .carousel-caption .btn {
-        font-size: 18px;
-      }
+	      }
+	      .carousel .item {
+	        height: 300px;
+	      }
+	      .carousel img {
+	        height: 300px;
+	      }
+	      .carousel-caption {
+	        width: 65%;
+	        padding: 0 70px;
+	        margin-top: 100px;
+	      }
+	      .carousel-caption h1 {
+	        font-size: 30px;
+	      }
+	      .carousel-caption .lead,
+	      .carousel-caption .btn {
+	        font-size: 18px;
+	      }
 
-      .marketing .span4 + .span4 {
-        margin-top: 40px;
-      }
+	      .marketing .span4 + .span4 {
+	        margin-top: 40px;
+	      }
 
-    }
+	    }
     </style>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -229,13 +175,15 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+	<%= yield :head %>
+	
   </head>
 
   <body>
-	  <!-- NAVBAR
-	    ———————————————————————————————————————————————————————— -->
+	<!-- nav bar —————————————————————————————————————————————— -->
 
-	    <div class="navbar-wrapper">
+	<div class="navbar-wrapper">
 	      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
 	      <div class="container">
 
@@ -287,98 +235,82 @@
 	      </div> <!-- /.container -->
 	    </div><!-- /.navbar-wrapper -->
 	
-	<%= yield %>
+	<!-- main (image and text overlays ) —————————————————————— -->
+	<%= yield :main %>
 	
+	<!-- footer ——————————————————————————————————————————————— -->
 
+	 <footer>
+		<div class="container">	
+	        <p class="pull-right"><a href="#">Back to top</a></p>
+		    <p>&copy; 2013 Blue Spot Wellness, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>		
+		</div>
+     </footer>
+
+
+	<!-- modal displays ——————————————————————————————————————— -->
+	
 	<div id="aboutUs" class="modal hide fade">
-						  <div class="modal-header">
-						    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						    <h2 style="padding-left:20px;">About Us</h2>
-						  </div>
-						  <div class="modal-body" style="padding:20px;">
-						    <%= render '/shared/about_us' %>
-						  </div>	
-						  <div class="modal-footer">
-						    <a href="#" class="btn">Close</a>
-						  </div>
+		<div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    	<h2 style="padding-left:20px;">About Us</h2>
+	  	</div>
+	  	<div class="modal-body" style="padding:20px;">
+	    	<%= render '/shared/about_us' %>
+	  	</div>	
+	  	<div class="modal-footer">
+	    	<a href="#" class="btn">Close</a>
+	  	</div>
+	</div>
 
-						</div>
+	<div id="privacyPolicy" class="modal hide fade">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <h2 style="padding-left:20px;">Privacy Policy</h2>
+	  </div>
+	  <div class="modal-body" style="padding:20px;">
+	    <%= render '/shared/privacy_policy' %>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn">Close</a>
+	  </div>
+	</div>
 
-						<div id="privacyPolicy" class="modal hide fade">
-						  <div class="modal-header">
-						    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						    <h2 style="padding-left:20px;">Privacy Policy</h2>
-						  </div>
-						  <div class="modal-body" style="padding:20px;">
-						    <%= render '/shared/privacy_policy' %>
-						  </div>
-						  <div class="modal-footer">
-						    <a href="#" class="btn">Close</a>
-						  </div>
-						</div>
+	<div id="contactUs" class="modal hide fade">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <h2 style="padding-left:20px;">Contact Us</h2>
+	  </div>
+	  <div class="modal-body" style="padding:20px;">
+	    <%= render '/shared/contact_us' %>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn">Close</a>
+	  </div>
+	</div>
 
-						<div id="contactUs" class="modal hide fade">
-						  <div class="modal-header">
-						    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						    <h2 style="padding-left:20px;">Contact Us</h2>
-						  </div>
-						  <div class="modal-body" style="padding:20px;">
-						    <%= render '/shared/contact_us' %>
-						  </div>
-						  <div class="modal-footer">
-						    <a href="#" class="btn">Close</a>
-						  </div>
-						</div>
+	<!-- javascript —————————————————————————————————— -->
 
-					</div>
+	<!-- Gooogle analytics ————————————————————————-->
 
+	<!-- include on all pages, so that we can see how
+		 people progress through the pipeline -->
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-33258190-1']);
+	  _gaq.push(['_setDomainName', 'degreecouncil.org']);
+	  _gaq.push(['_trackPageview']);
 
-
-			<!-- modal displays —————————————————————————————— -->
-
-			<div id="aboutUs" class="modal hide fade">
-			  <div class="modal-header">
-			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			    <h2 style="padding-left:20px;">About Us</h2>
-			  </div>
-			  <div class="modal-body" style="padding:20px;">
-			    <%= render '/shared/about_us' %>
-			  </div>	
-			  <!-- end div.container -->
-
-		<!-- javascript —————————————————————————————————— -->
-
-		<!-- Gooogle analytics ————————————————————————-->
-
-		<!-- include on all pages, not just Thankyou pages, so that we can see how
-			 people progress through the pipeline -->
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-33258190-1']);
-		  _gaq.push(['_setDomainName', 'degreecouncil.org']);
-		  _gaq.push(['_trackPageview']);
-
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; 
-			ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-		    var s = document.getElementsByTagName('script')[0]; 
-			s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; 
+		ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+	    var s = document.getElementsByTagName('script')[0]; 
+		s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 	
-    <!-- Javascript: initialize carousel 
-    ———————————————————————————————————————————————————— -->
 
-	<script>
-      !function ($) {
-        $(function(){
-          // carousel demo
-          $('#myCarousel').carousel()
-        })
-      }(window.jQuery)
-    </script>
-    <script src="../assets/js/holder/holder.js"></script>
   </body>
 </html>
 	

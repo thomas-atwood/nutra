@@ -1,51 +1,54 @@
-
-  
-
-
-    <!-- Hero Image Carousel
-    ——————————————————————————————————————————————————————— -->
-
+  <%= content_for :head do %>
 	<style>
 		div.slide1 h1 { color:black; }
 		div.slide1 p.lead { color:red!important; }
+		div.jumbo_overlay { margin-top: -800px;
+			margin-left:20px;}
+		div.jumbo_image { display:none;}
+		div.jumbo_overlay { display:none;}
+		div.blerbs { padding-top:20px;}
 	</style>
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="item active">
-        	<%= image_tag("slide-1.jpg") %>
-          <div class="container">
-            <div class="carousel-caption slide1">
-              <h1>Is Your Child Wired Differently?</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-         <%= image_tag("slide-02.jpg") %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Unsure RIDLIN is the Answer?</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag("slide-03.jpg") %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Balance Your Child's Brain.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
 
+			$(".more").hide();
+			$("#more_btn_wired_differently").click(function(){
+				$("#more_wired_differently").toggle('slow');	
+			});
+			$("#more_btn_ridlin").click(function(){
+				$("#more_ridlin").toggle('slow');
+			});
+			$("#more_btn_balance").click(function(){
+				$("#more_balance").toggle('slow');
+			});
+			
+			$("div.jumbo_image").fadeIn(2000, function(){
+				$("div.jumbo_overlay").fadeIn('slow');
+			});
+			
+
+		});
+	</script>
+  <% end %>
+
+  <%= content_for :main do %>
+
+    <!-- Hero Image ——————————————————————————————————————————————————————— -->	
+	<div class="jumbotron">
+		<div class="jumbo_image"><%= image_tag("slide-1.jpg") %></div>
+	   	<div class="container">		
+	  		<div class="row">
+	      		<div class="col col-lg-12 col-sm-12 jumbo_overlay">		
+					<h1>Is Your Child Wired Differently?</h1>
+			        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+					<a class="btn btn-large btn-primary" href="#">Sign up today</a>
+	  				
+	      		</div>
+	      	</div><!-- end div.row -->
+	    </div><!-- end div.container -->
+	 </div> <!-- end div jumbotron -->
+	
+    
 
 
     <!-- Marketing messaging 
@@ -55,44 +58,51 @@
     <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
-      <div class="row">
+      <div class="row blerbs">
 	
         <div class="span4">
          
-          <h2>Wired Differently</h2>
-          <p>The old idea that we are all wired differently is actually true when it comes to brain chemistry.
+          	<h2>Wired Differently</h2>
+          	<p>The old idea that we are all wired differently is actually true when it comes to brain chemistry.
+			<p>Normal chemical changes affect how the brain functions. When your neurotransmitters, such as serotonin, and norepinephrine, are properly balanced, scientific research reveals that it can have a positive effect on every aspect of your life and relationships, from sleep cycles to how we respond to stress, from self-esteem to feeling connected and more.</p>
+			<p>Genetics, stress, nutrition, early childhood experiences, traumas, neglect, and abuse all play a part in our neurotransmitter makeup.</p>
+          	<p><a class="btn btn-link more_btn" id="more_btn_wired_differently">More &raquo;</a></p>
+			<div id="more_wired_differently" class="more">
+				<p>Neurotransmitters fall into two categories, inhibitory (serotonin for calming & well-being) and excitatory (epinephrine, for drive).</p><p>Ideally, they should be balanced.</p><p>However, due to many of the reasons mentioned above, the neurotransmitters of many children (and adults) are not. When the excitatory side is too high, issues like disrupted sleep, and meltdowns, tend to occur.</p> <p>It is difficult to correct these tendencies with behavior methods alone. Even with the best intentions, due to his brain chemistry profile, the child will not be able to change his behavior; it may be beyond his capacity.</p>
 
-		Normal chemical changes affect how the brain functions. When your neurotransmitters, such as serotonin, and norepinephrine, are properly balanced, scientific research reveals that it can have a positive effect on every aspect of your life and relationships, from sleep cycles to how we respond to stress, from self-esteem to feeling connected and more.
+			</div>
 
-		Genetics, stress, nutrition, early childhood experiences, traumas, neglect, and abuse all play a part in our neurotransmitter makeup. Neurotransmitters fall into two categories, inhibitory (serotonin for calming & well-being) and excitatory (epinephrine, for drive). Ideally, they should be balanced. However, due to many of the reasons mentioned above, the neurotransmitters of many children (and adults) are not. When the excitatory side is too high, issues like disrupted sleep, and meltdowns, tend to occur. It is difficult to correct these tendencies with behavior methods alone. Even with the best intentions, due to his brain chemistry profile, the child will not be able to change his behavior; it may be beyond his capacity.</p>
-          <p><a class="btn" href="#">More &raquo;</a></p>
         </div><!-- /.span4 -->
 
 		<div class="span4">
-          <h2>RIDLIN Overuse</h2>
-          <p class="stand-in">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">More &raquo;</a></p>
+          	<h2>RIDLIN Overuse</h2>
+          	<p class="stand-in">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          	
+			<p><a class="btn btn-link more_btn" id="more_btn_ridlin">More &raquo;</a></p>
+			<div id="more_ridlin" class="more">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
         </div><!-- /.span4 -->
 
         <div class="span4">        
-          <h2>Brain Balance</h2>
-          <p>Balancing your child's brain is an important part of optimizing your child's life.  When their brain is balanced we see remarkable success in their ability to handle situations that previously caused distress, we find them attaching more to their parents, they excel academically, and problematic behaviors subside.  We are a piece of the puzzle in solving behavioral and emotional issues and complement many therapeutic approaches.  Our goal is to help children and their families function to the best of their ability and create a platform for the future happiness and success in life.</p>
-          <p><a class="btn" href="#">More &raquo;</a></p>
+          	<h2>Brain Balance</h2>
+          	<p>Balancing your child's brain is an important part of optimizing your child's life.  When their brain is balanced we see remarkable success in their ability to handle situations that previously caused distress, we find them attaching more to their parents, they excel academically, and problematic behaviors subside.</p>  <p>We are a piece of the puzzle in solving behavioral and emotional issues and complement many therapeutic approaches.</p>  <p>Our goal is to help children and their families function to the best of their ability and create a platform for the future happiness and success in life.</p>
+			<p><a class="btn btn-link more_btn" id="more_btn_balance">More &raquo;</a></p>
+			<div id="more_balance" class="more">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
         </div><!-- /.span4 -->
 
         
       </div><!-- /.row -->
 
 
-     
-
-
-      <!-- FOOTER -->
+      <!-- FOOTER  currently in the layout file for the home page 
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2013 Blue Spot Wellness, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
-
+	  -->
     </div><!-- /.container -->
-
+<% end %>
 
