@@ -10,31 +10,340 @@
 			$("li.profile").addClass("active")
 		});
 	</script>
-	
+	<style>
+		p.todo { color: red; }
+		table { margin-top:20px;}
+		table.lab_results tr td:nth-child(2) { text-align:center;}
+		table.lab_results tr td:nth-child(3) { text-align:center; border-left:1px solid gray }
+		td.normal { background-color:lightgreen;}
+		td.high { background-color:red;}
+		td.low {background-color: yellow; }
+		div.practitioners_note p.title { color:blue;}
+		div.practitioners_note p.body { font-style:italic; color:steelblue; }
+		table.supplements tbody tr td:first-child {color:steelblue;}
+		div.intro p {font-style:italic;}
+		table.relationship th { background-color: gainsboro;}
+		p.footnote { font-style:italic; font-size:11px; line-height: 13px;}
+	</style>
 <% end %>
 
 <%= content_for :sidebar do %>
 	<ul class="nav nav-list bs-docs-sidenav affix">
-		<li class="active"><a href="#topic1"><i class="icon-chevron-right"></i>Topic 1</a></li>
-		<li><a href="#topic2"><i class="icon-chevron-right"></i>Topic 2</a></li>
-		<li><a href="#topic3"><i class="icon-chevron-right"></i>Topic 3</a></li>
+		<li class="active"><a href="#topic1"><i class="icon-chevron-right"></i>Lab Test Results</a></li>
+		<li><a href="#topic2"><i class="icon-chevron-right"></i>Phase II Protocol</a></li>
+		<li><a href="#topic3"><i class="icon-chevron-right"></i>Follow-Up Testing</a></li>
+		<li><a href="#topic4"><i class="icon-chevron-right"></i>Points to Remember</a></li>
+		<li><a href="#topic5"><i class="icon-chevron-right"></i>Neurotransmitter Ratios</a></li>
+		<li><a href="#topic6"><i class="icon-chevron-right"></i>Neurotransmitters</a></li>
 	</ul>
 <% end %>
 
 <%= content_for :main do %>
-	<section id="standin">
-		<p>[  This is just a stub for the Evaluation page of the site — views/evaluation/show.html.erb  ]</p>
+
+	<section id="header">
+		<h2>Blue Spot Brain Wellness Report</h2>
+		<p class="patient">Prepared for: Jill Freemont</p>
+		<p>Your Brain Wellness Test Report contains:</p>
+		<ul>
+			<li>Your laboratory test results,</li>
+			<li>Your phase II protocol — supplement recommendations — and</li>
+			<li>Some notes on the significance of follow-up testing</li>
+		</ul>
+		<p>It also contains a wealth of background information for understand your test results:</p>
+		<ul>
+			<li>Points to Remember</li>
+			<li>Neurotransmitter Ratios</li>
+			<li>Neurotransmitters</li>
+		</ul>
+		<p>Click and topic on the left to go directly to the discussion of that topic.</p>				
 	</section>
+	
+	<!-- 1 ————————————————————————————————————————————————— -->
 	<section id="topic1">
-		<h2>Topic 1 </h2>
-		<p>[ Info for topic 1 goes here ]</p>
+		<h2>Your Laboratory Test Results</h2>
+		<p>Please print this for your records.  Your test results are as follows:</p>
+		<p class="table_title">Neurotransmitter Excretion Values</p>
+		<table class="table table-condensed lab_results">
+			<thead>
+				<th>Neurotransmitter/</br>Amino Acid</th>
+				<th>Current Results 3/27/2013</th>
+				<th>Previous Results 7/28/2012</th>
+				<th>Optimal Range</th>
+				<th>Plays a Role in: </th>
+				<th>Excitatory/ Inhibitory</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Serotonin</td><td class="normal">188</td><td class="normal">154</td><td>175-225</td><td>Sleep cycle, depression, anxiety, carbohydrate cravings, PMS </td><td>Inhibitory</td>
+				</tr>
+				<tr>
+					<td>Dopamine</td><td class="high">220</td><td class="normal">167</td><td>125-175</td><td>Focus, attention, memory, motivation/drive, mood, addictive disorders</td><td>Inhibitory/Excitatory</td>
+				</tr>
+				<tr>
+					<td>Norepinephrine</td><td class="normal">40</td><td class="normal">33</td><td>30-55</td><td>Energy, drive, stimulation, "fight or flight" response, insomni, anxiety</td><td>Excitatory</td>
+				</tr>
+				<tr>
+					<td>Epinephrine</td><td class="low">2</td><td class="low">6</td>><td>8-12</td><td>"Fight or flight" response, metabolism, energy depression, cognitive function</td><td>Excitatory</td>
+				</tr>
+				<tr>
+					<td>Norepi/Epi Ratio</td><td class="high">20</td><td class= "normal">5.5</td><td>3-6</td><td>Ratios &lt; 3 = restlessness, over-training. Ratios &gt; 7 = stress, tiredness, lack of focus, energy and motivation 'burn out'</td><td>Excitatory</td>
+				</tr>
+				<tr>
+					<td>GABA</td><td class="high">1083</td><td class="high">1558</td><td>550-750</td><td>Reduces excess stimulation</td><td>Inhibitory</td>
+				</tr>
+				<tr>
+					<td>Histamine</td><td class="normal">37</td><td class="normal">35</td><td>20-40</td><td>Responds to allergy and inflammation, low levels cause lethargy</td><td>Excitatory</td>
+				</tr>
+				<tr>
+					<td>Glutamate</td><td class="normal">13</td><td class="high">17</td><td>5-15</td><td>Agitation, sleeplessness, depression when low</td><td>Excitatory</td>
+				</tr>
+				<tr>
+					<td>Creatinine</td><td class="normal">35</td><td class="normal">48</td><td>10-250</td><td>Determines whether sample is viable for testing (hydration/dehydration)</td><td>N/A</td>
+				</tr>
+		
+					
+			</tbody>
+		</table>
 	</section>
+	
+	<!-- 2 ————————————————————————————————————————————————— -->
 	<section id="topic2">
-		<h2>Topic 2</h2>
-		<p>[ Info for topic 2 goes here ]</p>
+		<h2>Phase II Protocol: the Balancing Phase</h2>
+		<div class="topic_intro">
+			<p>In the second phase of your last program, excitatory support was introduced in combination with your existing inhibitory products that were begun in phase I. After reviewing your latest eHealth profile and your current neurotransmitter test levels, your new protocol was created to continue to bring your excitatory and inhibitory systems back into balance.
+			</p>
+			<p>Please print your dosage schedule below for Phase II:</p>
+			<button>Print</button>
+			<table class="table table-condensed table-striped supplements">
+				<thead>
+					<th>Supplement</th>
+					<th>Morning</br>Dosage</th>
+					<th>Lunchtime Dosage</th>
+					<th>Afternoon Dosage</th>
+					<th>Dinner Dosage</th>
+					<th>Before Bed</th>
+				</thead>
+				<tbody>
+					<tr><td>IH One</td><td>4 capsules</td><td>2 capsules</td><td></td><td></td><td></td></tr>
+					<tr><td>PT Synergy</td><td>1 capsule</td><td></td><td></td><td></td><td></td></tr>
+					<tr><td>GABA+</td><td>1 capsule as needed</td><td></td><td></td><td></td><td></td></tr>
+					<tr><td>No Worries</td><td>1 capsule</td><td>1 capsule at 4PM</td><td></td><td></td><td></td></tr>
+					<tr><td>Methyl+</td><td>1 capsule</td><td></td><td></td><td></td><td></td></tr>
+					<tr><td>Adrenal C+</td><td>2 capsules</td><td>1 capsule</td><td></td><td></td><td></td></tr>
+					<tr><td>Omega+ 780</td><td>1 capsule</td><td>1 capsule</td><td></td><td></td><td></td></tr>
+					<tr><td>Foundation Nutrients</td><td>2 capsules</td><td></td><td></td><td></td><td></td></tr>
+					
+				</tbody>			
+			</table>
+			<div class="practitioners_note">
+				<p class="title">Practitioners Note:</p>
+				<p class="body">Jill: Methyl + will provide the necessary cofactor for norepinephrine to convert into epinephrine. Epinephrine plays a large role in energy, focus and cognition. I am hoping that the Methyl+ will help your conversion of norepi to epi. You may want to initially keep your PT Synergy at 2 capsules per day until the Methyl + has ben in place for a week or two. If you feel agitated or irritable on the full dose of PT Synergy, consider dropping it back to 1 capsule only in the a.m. Let me know if you have any questions.</p>
+			<div>		
 	</section>
+	
+	<!-- 3 ————————————————————————————————————————————————— -->
 	<section id="topic3">
-		<h2>Topic 3</h2>
-		<p>[ Info for topic 3 goes here ]</p>
+		<h2>The Significance of Follow-up Testing</h2>
+		
+		<div class="subsection">
+			<div class="intro">
+				<p>Follow-up testing is crucial in monitoring neurotransmitter levels, as well as symptom resolution. The current protocol that is recommended will again include excitatory and inhibitory support based on the levels necessary for continued progress. It is therefore important to remember that the products should be taken as recommended. For example, if either one of these support products is discontinued, it may upset the balance in the neurotransmitter systems and may lead to a reversal in progress.</p>
+			</div>
+		</div>
+		
+		<div class="subsection">
+			<h4>Neurotransmitter Variation</h4>
+			<p>If you notice an extreme variation in neurotransmitter levels between your last test results and your current levels it may be due to a significant variation in water intake per each urine sample you submitted. We recommend that you consume less than 8 oz of water the morning of urine (sample) collection. A great variation in fluid intake, particularly the morning of the sample collection, can lead to a shift in the amount of neurotransmitter levels that are finally reported. Since the ratios between neurotransmitters are more important than the excretion values, we are still able to determine improvements in your overall balance and create a customized protocol for you. We recommend that when you re-test, you consume less than 8 oz. of water. Please speak to your Neurogistics practitioner if you have additional questions.</p>
+		</div>
+		
+		<div class="subsection">
+			<h4>Re-Testing and Supplementation</h4>
+			<p><strongSerotonin</strong> Following re-testing and 5-HTP supplementation (included in IH-One, Sero-S, 5HTP and NTB), you will typically see an improvement in Serotonin levels. 5-HTP or 5-hydroxy-tryptophan is the direct precursor to the neurotransmitter Serotonin. Most individuals initially have low Serotonin levels on their base line test and notice an improvement in their Serotonin levels after retesting. Increasing Serotonin levels often leads to an improvement in mood, stress response and sleep.</p>
+			<p>There are cases, however, where Serotonin levels were at the upper end or above the 'Optimal Range' on the initial report. This does not mean that Serotonin levels were initially high. Instead, high Serotonin levels on a baseline report are often reflective of a high turnover or excretion rate(*), which is commonly seen in individuals that are experiencing a considerable amount of stress and anxiety. Serotonin, which is part of the inhibitory system, is over excreting in an effort to try to decrease the overly active excitatory system. If Serotonin is continuously over excreted it can lead to depletion of this neurotransmitter. It is still important to support Serotonin with 5-HTP containing inhibitory products. Following inhibitory supplementation, the over firing of the excitatory system usually subsides, leading to a decrease in excessive Serotonin excretion. It is common to see a decrease in Serotonin levels on a follow-up test in individuals that were initially over excreting Serotonin.</p>
+			
+			<p>GABA The neurotransmitter GABA is also inhibitory and works in a similar fashion to Serotonin. Levels of GABA above the Optimal Range on a baseline report are often an indication that the inhibitory system is working over time.</p>
+			<p>A drop in GABA levels on a re-test report points to a 'cooling off' of the excitatory system.</p>
+			<p>Because GABA works like a braking system, the excessive over-excretion often subsides by the time one re-tests. GABA is no longer needed to attempt to "slam on the brakes" and reduce excitatory excesses if there is relief in these areas.</p>
+			
+			<p style="font-style:italic;">(*) Excretion Rate: It is important to remember that urinary neurotransmitter testing is examining the rate at which neurotransmitters are being excreted out of the body. Urinary analysis is not a measurement of the total pool or net level of each particular neurotransmitter.</p>
+		</div>
+		
+		<div class="subsection">
+			<h4>Excitatory Neurotransmitters</h4>
+			<p>Your follow-up protocol will again include excitatory and inhibitory support. The protocol may have changed slightly in an attempt to address a neurotransmitter imbalance or tackle an unresolved or ongoing symptom. Neurotransmitter repletion with amino acid therapy gets to the root of the problem by providing the precursors (amino acids), which are the building blocks of neurotransmitters. This cannot be done with medications but can certainly be accomplished with an increase in variety of proteins and supplementation.</p>
+
+		</div>
+		
+		<div class="subsection">
+			<h3>Excitatory Neurotransmitters</h3>
+			<p>As the inhibitory system (Serotonin and GABA) is being supported and over activity of the excitatory system (if any) is being resolved, we should see a decrease in excessive levels of excitatory neurotransmitters. This includes Norepinephrine, Dopamine and Glutamate. Excessive levels of these neurotransmitters can exacerbate feelings of stress, anxiety, restlessness, and disrupted sleep patterns. However, not all individuals have excessive excitatory activity. Low levels of the catecholamines (Norepinephrine, Epinephrine, and Dopamine) on a baseline test are commonly observed. Low catecholamine levels can contribute to fatigue, a decrease in metabolism, inability to focus or concentrate, a decrease in memory or recall, as well as low mood or depression. If low catecholamine levels were initially reported, then it is likely that the Phase II protocol included strong excitatory or catecholamine support. In these cases, we would like to see an improvement or elevation in these neurotransmitters on the follow-up test report.</p>
+		</div>
+	
+		
+		<div class="subsection">
+			<h3>Neurotransmitter Ratios</h3>
+			<p>Upon re-testing, one of the additional factors that is ideally observed is an improvement in the individual's neurotransmitter ratios. This includes Serotonin to Dopamine, as well as Norepinephrine to Epinephrine. For example, an improvement in the Serotonin to Dopamine ratio points to mood enhancement, an increase in the ability to respond to stress, as well as restored concentration and focus. An improvement in the Norepinephrine to Epinephrine ratio often means a reduction in anxiety, as well as a significant increase in energy levels throughout the day. Bio-individuality must be a consideration when studying re-test neurotransmitter excretion values.</p>
+			<p><strong>Since Phase I has been completed, the possibility of GI upset should have subsided. Amino acid therapy can now be taken on an empty stomach. Taking amino acids on an empty stomach increases the likelihood that the specific amino acid will be taken up by the brain to build the targeted neurotransmitter. This contributes to an overall increase of the total pools of the neurotransmitter.</strong></p>
+			<p>Because this program addresses the root cause of imbalance, amino acid supplementation need not be a lifelong commitment. However, depending on the severity of the initial clinical complaints, some individuals may need to stay on a low dose maintenance protocol for continuous neurotransmitter repletion. Lifestyle factors such as poor diet and high stress may lead to a reversal in neurotransmitter levels. Periodic re-testing is an important step for affirming that neurotransmitter ratios have remained balanced.</p>
+		</div>
+		
+</section>
+	
+	
+	<!-- 4 ————————————————————————————————————————————————— -->
+	
+	<section id="topic4">
+		<h2>Points to Remember</h2>
+		<p><strong>It is helpful to take amino acid supplements on an empty stomach.</strong> Amino acids such as l-taurine and l-tyrosine compete for absorption at the blood brain barrier. Taking products at least 30 minutes before meals will help prevent the amino acids in the products from competing with the amino acids found in foods. This will also help assure that the amino acid therapy is being used for neurotransmitter repletion.</p>
+		<p><strong>Be sure to continue taking your basic multivitamin.</strong> Vitamin and mineral cofactors are an important step in amino acid to neurotransmitter conversion. For example, the conversion of the amino acid tyrosine into the neurotransmitter Norepinephrine requires vitamin B3, B6, vitamin C and copper for conversion. Your basic multivitamin will include the cofactors necessary for this important process.</p>
+		<p><strong>Maintain Omega-3 fatty acid supplementation.</strong> Omega-3 fatty acids, such as those found in deep sea cold water fish have been found to play numerous positive roles in brain health. Omega-3s play a vital role in maintaining cell membrane function of neurons, which is important factor in assuring that nutrients are going into the cell, toxins are being removed, and that neurotransmitters are being replenished. Thus, Omega-3 fatty acids have been found helpful in combating depression, memory loss, increasing one's ability to focus and concentrate and have also been found crucial in infant brain development. Omega-3 supplementation is an important component of any brain health program.</p>
+		<p><strong>Maintain adequate water intake.</strong> An excellent method for measuring how much water intake is needed each day is to divide your body weight by 2. This will determine the number of ounces of water necessary for optimal health. Water is an important nutrient for maintaining overall health as well as proper brain detoxification. Many cell functions throughout the body are impaired when one is not properly hydrated.</p>
+		<p><strong>Supplements should be taken as recommended.</strong> Taking only part of the protocol may lead into an imbalance or delay in recuperation. If you have questions and require additional assistance, please contact your Neurogistics practitioner.</p>
+		<p><strong>Follow the 'Brain Wellness Connection' emails.</strong> These reminder emails contain important information that will help you get the most out of The Brain Wellness Program. They are properly timed suggestions that provide guidance throughout the various phases of your program. A re-set of the reminders is possible from the emails themselves.</p>
+		<p><strong>Re-test as recommended</strong> to get the most out of your Brain Wellness Program.</p>
+	</section>
+	
+	<!-- 5 ————————————————————————————————————————————————— -->
+	
+	<section id="topic5">
+		<h2>Neurotransmitter Ratios</h2>
+		
+		<!-- Serotonin and Dopamine  ———————————————— -->
+		<div class="subsection">
+			<h3>Serotonin and Dopamine</h3>
+			<p>The role of serotonin is for the most part inhibitory (calming) in the central and peripheral nervous systems, although it can also behave as an excitatory (stimulating) neurotransmitter at times. Serotonin is synthesized from the parent amino acid L-tryptophan. When serotonin is inefficient symptoms such as depression, anxiety, sleep cycle issues, and cravings for carbohydrates can occur. Sometimes patients do not experience any symptoms at all. Like serotonin, dopamine plays a role as both inhibitory and excitatory, but mainly behaves as an excitatory molecule. When dopamine is inefficient, common symptoms include poor focus, short-term and/or long-term memory issues, hopelessness, and addictive disorders. Monitoring the relationship between these two neurotransmitters (ratio) is more important that the values alone because of their intricate relationship. In clinical practice, evaluation of the ratio provides key information to target symptoms more accurately. For a more detailed description of the role of each of these neurotransmitters, please see "Neurotransmitter Descriptions" on the last page of your Brain Wellness Report. The following paragraphs will outline the characteristics of commonly observed ratios between serotonin and dopamine for both adults and children.</p>
+			<div class="subsubsection">
+				<h4>In Adult Populations:</h4>
+				<p>Based on clinical observations, patients seem to experience the least amount of symptoms when this ratio is approximately 1.4:1 (serotonin: dopamine). When urinary dopamine excretion exceeds that of serotonin, it is usually an indication of a stressed brain. In this case, dopamine has begun to over-excrete in an attempt to compensate for inefficiencies in serotonin (and GABA). If this scenario goes unsupported for an extended period of time, both of these neurotransmitters can become depleted.</p>
+			</div>
+			<div class="subsubsection">
+				<h4>In Children:</h4>
+				<p>Children have a greater ability to excrete neurotransmitters than adults do. They begin storing neurotransmitters in the brain while in utero. Children also have more stomach acid than adults do. They are better able to break down their foods (usually) and therefore can get more nutrients from their foods and supplements. When a reverse relationship between serotonin and dopamine is present in children, focus issues are typically present as well as anxiety and restlessness.</p>
+			</div>
+			
+			<table class="table table-condensed table-bordered relationship">
+				<thead>
+					<th>Relationship</th>
+					<th>Observed Symptoms*</th>
+				</thead>
+				<tbody>
+					<tr><td>&#161;Serotonin: &#161;Dopamine</td><td>Severe depression, life is colorless, addictions, compulsive behaviors, eating disorders</td></tr>
+					<tr><td>&#161;Serotonin: Dopamine!</td><td>Focus issues, depression with high stress or anxiety, sleep cycle disturbances</td></tr>
+	
+				</tbody>
+			</table>
+			<p class="footnote">! = High Excretion;  &#161; = Low Excretion/Depletion</p>
+			<p class="footnote">*Observed Symptoms (not limited to these symptions. Occasionally, patients do not report any symptoms most likely because the ratios between these neurotransmitters are good).<p>
+
+		</div>
+		
+		<!-- Norepinephrine and Epinephrine ———————————————— -->
+		<div class="subsection">
+			<h3>Norepinephrine and Epinephrine</h3>
+			<p>The ratio of norepinephrine to epinephrine provides an indirect view of how stress is affecting the body. Stressors may include (but not limited to) mental stressors such as worrying over finances, work, personal relationships, or physical stressors such as illness or over-training. The exchange of neurotransmitters and hormones that occurs in the presence of these stressors is commonly referred to as "the stress response." Because norepinephrine and epinephrine are released into the bloodstream by the adrenal glands, evaluation of the ratio reflects how well the adrenal glands are coping with stress. The adrenal glands are part of the endocrine system, and regulate the release of various hormones (such as cortisol) and neurotransmitters (such as norepinephrine and epinephrine). Sometimes in the literature you will see norepinephrine referred to as 'noradrenaline' and epinephrine referred to as 'adrenaline.' Both of these molecules are essential for regulating how well the body responds to a particular stressor or stimuli ("fight or flight responses"). In clinical practice, evaluation of the ratio provides key information to target symptoms more accurately. For a more detailed description of the role of each of these neurotransmitters, please see "Neurotransmitter Descriptions" on the last page of your Brain Wellness Report. The following paragraphs will outline the characteristics of commonly observed ratios between norepinephrine and epinephrine for both adults and children.</p>
+		
+			<div class="subsubsection">
+				<h4>In Adult Populations:</h4>
+				<p>Norepinephrine and epinephrine are both formed from the parent amino acid Tyrosine. The ideal ratio for norepinephrine to epinephrine is between 3 and 6. When epinephrine is low, cortisol production from the adrenals may be insufficient. Low epinephrine may also indicate inflammation in the body due to increased homocysteine output. Elevated epinephrine is less common but typically means intense physical exertion (such as over-training in sports) or the use of stimulants such as caffeine or medications that have a stimulant-like effect. Supporting the adrenals will help improve the release of cortisol, norepi and epi from the adrenal glands.</p>
+			</div>
+			<div class="subsubsection">
+				<h4>In Children:</h4>
+				<p>Elevated norepinephrine and epinephrine can cause focus issues, hyperactivity, and excessive sensitivity to textures or sensory issues. This hypersensitivity can be to food taste and consistency or to clothing or other fabrics. Parents may report that the child only likes "soft" clothing or does not like tags in their clothing. Low norepi and epi typically cause extreme fatigue in children much like it does in adults. These levels have typically been elevated at one time and have passed through normal ranges on the way to depletion.</p>
+			</div>
+			
+			<table class="table table-condensed table-bordered relationship">
+				<thead>
+					<th>Relationship</th>
+					<th>Observed Symptoms*</th>
+				</thead>
+				<tbody>
+					<tr><td>Normal or !Norephinephrine and &#161;Epinephrine</td><td>Low cortisol, fatigue, burnout, chronic stress, poor recovery from illness, dizziness upon standing, "tired and wired"</td></tr>
+					<tr><td>!Norepinephrine and !Epinephrine</td><td>Chronic severe distress, anxiety, possible panic attacks, sleep cycle disturbances</td></tr>
+					<tr><td>&#161;Norepinephrine; &#161;Epinephrine</td><td>Severe fatigue, inability to focus, low mood</td></tr>
+				</tbody>
+			</table>
+			<p class="footnote">! = High Excretion;  &#161; = Low Excretion/Depletion</p>
+			<p class="footnote">*Observed Symptoms (not limited to these symptions. Occasionally, patients do not report any symptoms most likely because the ratios between these neurotransmitters are good).<p>
+				
+		</div>
+			
+		<!-- GABA and Glutamate —————————————————— -->
+		<div class="subsection">
+			<h3>GABA and Glutamate</h3>
+			<p>GABA and Glutamate are both formed from the parent amino called l-glutamine. GABA is considered the main inhibitory (calming) neurotransmitter in the central nervous system (much like the brakes on a car), whereas glutamate is the main excitatory (stimulating) neurotransmitter (much like the accelerator on a car). Unlike the diversity in behavior of serotonin and dopamine, GABA functions only as inhibitory, whereas glutamate functions only as excitatory to the nervous system. Low GABA levels indicate stress from another excitatory neurotransmitter or stimulus. High turnover of GABA is a red flag that there is an excitatory molecule out of balance. For a more detailed description of the role of each of these neurotransmitters, please see "Neurotransmitter Descriptions" on the last page of your Brain Wellness Report. The following paragraphs will outline the characteristics of commonly observed ratios between serotonin and dopamine for both adults and children.</p>
+			
+			<div class="subsubsection">
+				<h4>In Adult Populations:</h4>
+				<p>Ongoing imbalances between GABA and Glutamate, especially when Glutamate is elevated, have been linked to neuro-degenerative diseases such as Parkinson's and Alzheimer's disease. Glutamate in excess is toxic to the brain, so any dietary exposure to glutamate (such as MSG or monosodium glutamate) must be avoided. MSG is a flavor enhancer commonly used in processed or pre-packaged foods. It is also listed as "Natural Flavorings" on ingredient labels. Reading ingredient labels are imperative in these cases to prevent further problems down the road.</p>
+			</div>
+			
+			<div class="subsubsection">
+				<h4>In Children:</h4>
+				<p>GABA is imperative for children to help manage their natural excitability. If GABA is exceedingly high in the excretion values, it is a sign that a depletion phase is occurring. It is also indicative of a major stressor or elevated excitatory neurotransmitter. We have many neurotransmitters, not all of which can be tested in this method. Glutamate can be accidentally consumed through foods or the brain will increase excretory values when serotonin is subpar as a whole or subpar in its relationship to dopamine. Glutamate is easily treated with magnesium support. GABA may be temporarily supplemented but over time it will recuperate when serotonin is optimized.</p>
+			</div>
+			
+			<table class="table table-condensed table-bordered relationship">
+				<thead>
+					<th>Relationship</th>
+					<th>Observed Symptoms*</th>
+				</thead>
+				<tbody>
+					<tr><td>!GABA:!Glutamate</td><td>Anxiety, restlessness, insomnia, aggressive behaviors, easily agitated</td></tr>
+					<tr><td>&#161;GABA: !Glutamate</td><td>Long-term exposure to symptoms/insufficient GABA response, headaches/migraines, insomnia, lack of focus. </td></tr>
+					<tr><td>!GABA: &#161;or Normal Glutamate</td><td>Stress; elevated dopamine, Norepi, or Epi; anxiety/restlessness. </td></tr>
+				</tbody>
+			</table>
+			<p class="footnote">! = High Excretion;  &#161; = Low Excretion/Depletion</p>
+			<p class="footnote">*Observed Symptoms (not limited to these symptions. Occasionally, patients do not report any symptoms most likely because the ratios between these neurotransmitters are good).<p>
+		</div>
+		
+		<!-- Histamine ———————————————————————————— -->
+		<div class="subsection">
+			<h3>Histamine</h3>
+			<p>Histamine is commonly thought of as the molecule that responds to allergens. While histamine does have immune modulating properties, it also behaves as a neurotransmitter in the brain It allows for the consistent firing of neurons and correlates with the sleep/wake cycle. Measuring histamine in the urine does not differentiate from histamine produced as a response to allergen (immune response in the gut), or histamine.</p>
+			
+			<div class="subsubsection">
+				<h4>In Adult Populations:</h4>
+				<p>Histamine is commonly elevated among adult as result of seasonal allergies or environmental allergies. In those cases, nutrients such as Vitamin C can greatly reduce histamine excretion. However, when histamine does not improve by the first retest, further investigation such as food sensitivity testing is considered to identify the cause.</p>
+			</div>
+			
+			<div class="subsubsection">
+				<h4>In Children:</h4>
+				<p>Histamine elevations can occur for a number of reasons. The most common is in response to an environmental or seasonal allergen. When histamine levels consistently remain above 60 we typically consider that there is a food component especially if there is no outward sign of allergy such as runny nose, watery eyes, etc. Often, eczema, rashes, constipation or reddening of the face/neck will occur with food sensitivities or allergies but there are many foods that we do not have a visible symptom for. We do know that if a child has had chronic stress, that often there are "false negative" results found on allergy tests. When the brain achieves greater balance, and the gut is healthier, these levels typically will be more realistic.</p>
+				
+				<table class="table table-condensed table-bordered relationship" cellpadding ="5">
+					<thead>
+						<th>Relationship</th>
+						<th>Observed Symptoms*</th>
+					</thead>
+					<tbody>
+						<tr><td>&#161;Histamine</td><td>Lethargy</td></tr>
+						<tr><td>!Histamine</td><td>Poor focus, anxiety, allergies (environmental or food sensitivities), inflamation</td></tr>
+		
+					</tbody>
+				</table>
+				<p class="footnote">! = High Excretion;  &#161; = Low Excretion/Depletion</p>
+				<p class="footnote">*Observed Symptoms (not limited to these symptions. Occasionally, patients do not report any symptoms most likely because the ratios between these neurotransmitters are good).<p>
+			</div>
+			
+	</section>
+	
+	<!-- 6 ————————————————————————————————————————————————— -->
+	<section id="topic6">
+		<h2>Neurotransmitters</h2>
+		<p><strong>Neurotransmitters</strong> are the brain chemicals that communicate information throughout our brain and body. Generally, neurotransmitters can be categorized as either inhibitory or excitatory. Inhibitory neurotransmitters balance mood and are easily depleted when the excitatory neurotransmitters are overactive. Inhibitory neurotransmitters such as GABA, decrease excessive excitatory activity, others such as Serotonin are involved in mood regulation. Excitatory neurotransmitters are not necessarily exciting - it means that they stimulate the brain.</p>
+		<p><strong>Neurotransmitter levels</strong> can be depleted in many ways. As a matter of fact, scientific research suggested that 86% of Americans have suboptimal neurotransmitter levels. Stress, diet, genetic predisposition, drug and caffeine usage can cause these levels to become depleted. Patient results (as noted in your lab test results) are your excretion values. The Optimal Range is a norm based on the testing of thousands of patients who do not experience anxiety, sleep cycle disturbances, depression, ADD/ADHD symptoms, migraine headaches, etc. Each neurotransmitter has many roles in the body. Please keep in mind that elevated values (excretion values) do not mean that you have too much of that neurotransmitter. It means that a high turnover rate is occurring.</p>
+		
+		<div class="subsection">
+			<h3>Neurotransmitter Descriptions </h3>
+			<p><strong>Serotonin</strong> is the master neurotransmitter. When it is out of range, symptoms can arise, such as depression, anxiety and worry, obsessive thoughts and behaviors, carbohydrate cravings, PMS, difficulty with pain control and sleep cycle disturbances. Occasionally - none of these symptoms will occur when serotonin is low - there will simply be lethargy (lack of energy). Adequate amounts of serotonin are necessary for a stable mood and to balance any excessive excitatory (stimulating) neurotransmitter firing in the brain. If you use stimulant medications or caffeine in your daily regimen, it can cause a depletion of serotonin over time.</p>
+			<p><strong>Dopamine</strong> is our focus neurotransmitter. When dopamine is either elevated or low, we can have focus issues, such as not remembering where we put our keys, forgetting what a paragraph said when we just finished reading it or simply daydreaming and not being able to stay on task. Dopamine is also involved in the reward center of the brain.</p>
+			<p>Depleted levels can lead to the doldrums, lack of motivation for life,or seeking out extreme behaviors (addictive disorders) for stimulation. Stimulants such as medications for ADD, or drugs such as marijuana and cocaine can cause elevation excretion of dopamine. Unfortunately, stimulating dopamine consistently can cause a depletion of dopamine over time.</p>
+			<p><strong>Norepinephrine</strong> is an excitatory neurotransmitter that is responsible for stimulatory processes in the body. Norepinephrine also converts epinephrine. This neurotransmitter can cause anxiety at elevated excretion levels, as well as some "mood dampening" effects. Low levels of norepinephrine are associated with low energy and decreased focus ability.</p>
+			<p><strong>Epinephrine</strong> is an excitatory neurotransmitter involved in the body's "fight or flight" response and regulates brain functions such as metabolism, heart rate, and blood pressure. This neurotransmitter will often be elevated when hyperactivity or anxiety is present. Long-term over-stimulation can cause epinephrine levels to be depleted. Epinephrine also regulates heart rate and blood pressure.</p>
+			<p><strong>GABA</strong> is an inhibitory neurotransmitter that is often referred to as "nature's valium-like substance". When GABA is out of range (high or low excretion values), it is likely that an excitatory neurotransmitter is firing too often in the brain. High GABA levels are indicative of an over-excretion rate necessary to decrease excitatory over-firing.</p>
+			<p><strong>Glutamate</strong> is an excitatory neurotransmitter. It plays a major role in learning and memory. Excessive excretion amounts are associated with anxiety, impulsivity and depression.</p>
+			<p><strong>Histamine</strong> is an excitatory neurotransmitter that has many roles. When values are high it may be indicative of an allergic response in the body or inflammation in the body. Histamine also controls our sleep-wake cycle, as well as our energy level.</p>
+		</div>
 	</section>
 <% end %>
