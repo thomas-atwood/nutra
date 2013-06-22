@@ -11,18 +11,55 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612023637) do
+ActiveRecord::Schema.define(:version => 20130622160019) do
+
+  create_table "clients", :force => true do |t|
+    t.string "type"
+    t.string "salutation"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "street"
+    t.string "suite"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "work_phone"
+    t.string "mobile_phone"
+    t.string "email"
+    t.string "skype"
+    t.string "referred_by"
+    t.string "relationship"
+  end
+
+  create_table "clinic_groups", :force => true do |t|
+    t.string "name"
+    t.string "contact_name"
+    t.string "contact_phone"
+    t.string "contact_email"
+  end
+
+  create_table "clinics", :force => true do |t|
+    t.string  "name"
+    t.string  "address"
+    t.string  "address2"
+    t.string  "city"
+    t.string  "state"
+    t.string  "country"
+    t.string  "zip"
+    t.string  "main_phone"
+    t.integer "clinic_group"
+  end
 
   create_table "patients", :force => true do |t|
     t.string  "type"
     t.string  "salutation"
     t.string  "first_name"
     t.string  "last_name"
-    t.string  "contact_preference"
-    t.string  "phone"
-    t.integer "when_to_call"
+    t.integer "age"
+    t.integer "weight"
+    t.string  "sex"
     t.string  "email"
-    t.string  "skype"
+    t.string  "clinician_code"
     t.boolean "issues_mood"
     t.boolean "issues_anxiety"
     t.boolean "issues_stress"
@@ -43,6 +80,33 @@ ActiveRecord::Schema.define(:version => 20130612023637) do
     t.boolean "on_medication_other_brain"
   end
 
+  create_table "practitioners", :force => true do |t|
+    t.string  "name"
+    t.string  "salutation"
+    t.string  "sex"
+    t.string  "street"
+    t.string  "suite"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip"
+    t.string  "office_main_phone"
+    t.string  "office_extension"
+    t.string  "office_direct"
+    t.string  "mobile"
+    t.string  "email"
+    t.string  "specialization"
+    t.string  "conditions"
+    t.boolean "can_order_tests"
+    t.boolean "can_prescribe_nutraceuticals"
+    t.boolean "can_prescribe_drugs"
+  end
+
+  create_table "program_elements", :force => true do |t|
+  end
+
+  create_table "programs", :force => true do |t|
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -53,6 +117,32 @@ ActiveRecord::Schema.define(:version => 20130612023637) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "test_suites", :force => true do |t|
+    t.string  "test_suite_type"
+    t.string  "test_suite_subtype"
+    t.date    "date_samples_submitted"
+    t.integer "lab_send_to"
+    t.date    "date_processed"
+    t.date    "date_returned_to_blue_spot"
+    t.boolean "checked"
+    t.string  "checked_by_whom"
+    t.boolean "ok"
+    t.date    "date_returned_to_client"
+    t.date    "date_client_first_accessed_it"
+    t.string  "return_to"
+  end
+
+  create_table "tests", :force => true do |t|
+    t.string  "test_type"
+    t.string  "test_subtype"
+    t.decimal "normal_range_low"
+    t.decimal "normal_range_high"
+    t.decimal "result_value"
+    t.boolean "within_normal_range"
+    t.boolean "ok"
+    t.decimal "cost"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

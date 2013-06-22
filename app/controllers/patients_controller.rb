@@ -40,12 +40,14 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
+   
     @patient = Patient.new(params[:patient])
-
+    #where = "Patient/create just after creating Patient tuple from input parameters"
+    #debugger
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
-        format.json { render json: @patient, status: :created, location: @patient }
+        format.html { redirect_to :controller => "home", :action => "index", notice: 'Thank you. One of our clinicians will be in touch with you shortly.' }
+        #format.json { render json: @patient, status: :created, location: @patient }
       else
         format.html { render action: "new" }
         format.json { render json: @patient.errors, status: :unprocessable_entity }

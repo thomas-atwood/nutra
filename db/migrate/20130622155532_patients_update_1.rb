@@ -6,11 +6,10 @@ class PatientsUpdate1 < ActiveRecord::Migration
       t.string  :salutation # Mr. Ms. Mrs. Dr. 
       t.string  :first_name
       t.string  :last_name
-      t.string  :contact_preference
-      t.string  :phone
-      t.integer :when_to_call
-      t.string  :email
-      t.string  :skype
+      t.integer :age
+      t.integer :weight
+      t.string  :sex # "F=female, M=male"
+
       t.boolean :issues_mood
       t.boolean :issues_anxiety
       t.boolean :issues_stress

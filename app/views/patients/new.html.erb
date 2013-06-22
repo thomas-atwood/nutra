@@ -1,3 +1,17 @@
+<%= content_for :head do %>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+
+			$(":submit").click(function(){
+				alert("Thank you for completing your child's profile. One of our clinicians will contact you by email shortly.")
+			});
+			
+		});
+	</script>			
+
+<% end %>
+
 <%= content_for :main do %>
 
 	<h3>Get Started: </br>

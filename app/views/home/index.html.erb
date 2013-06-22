@@ -41,18 +41,32 @@
 	      		<div class="col col-lg-12 col-sm-12 jumbo_overlay">		
 					<h1>Is Your Child Wired Differently?</h1>
 			        <p class="lead">Do they experience Focus Challenges? Are they 'on the Spectrum'?  Maximize their potential.</br>Wired Differently-Kids is committed to optimizing your child’s health and brain balance.</p>
-					<a class="btn btn-large btn-primary" href="#">Sign up today</a>
+					<!-- ><a class="btn btn-large btn-primary" href="#">Sign up today</a> -->
+					<%= link_to "Sign up today" , :new_patient, { :class => 'btn btn-large btn-primary'} %>
 	  				
 	      		</div>
 	      	</div><!-- end div.row -->
 	    </div><!-- end div.container -->
 	 </div> <!-- end div jumbotron -->
 	
+	
+    <!-- Flash Msgs  ———————————————————————————————————————— -->
     
+	<div id ="flash_messages">
+		<!-- <p class="notice"><## notice %></p> -->
+		<% unless flash[:error].nil? %>
+			<div id ="error" class="text-info"><%= flash[:error] %></div>
+		<% end %>
+		<% unless flash[:notice].nil? %>
+			<div id ="notice" class="text-info"><%= flash[:notice] %></div>
+		<% end %>
+		<% unless flash[:alert].nil? %>
+			<div id ="alert" class="text-info"><%= flash[:alert] %></div>
+		<% end %>
+	</div>
 
+    <!-- Marketing messaging ———————————————————————————————————————— --> 
 
-    <!-- Marketing messaging 
-		 ————————————————————————————————————————————————————————————————————————— -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">

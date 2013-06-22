@@ -9,6 +9,9 @@
 	.email_field { margin-left: 0px; }
 	.submit { margin-top:20px;}
 	.optin { font-size: 12px; font-style: italic; }
+	.nextTab { margin-left: 340px;}
+	div.patient_first_name label { padding-right:20px;}
+
 </style>
 
 
@@ -23,15 +26,18 @@
 	</ul>
 
 	<div class="tab-content">
+		
+		<!--  form panel with information on the child:  name/age/sex? 
+		-->
 
 		<div class="tab-pane active" id="problems">
   			<div class="form-inputs">
-				<!--  form panel with contact information? 
-				<## f.input :salutation, :collection => salutation_options, as: :radio_buttons, :item_wrapper_class => 'inline' %>
-				<## f.input :first_name %>
-				<## f.input :last_name %>
-				<## f.input :contact_preference, :collection => contact_preference_options, as: :radio_buttons, :item_wrapper_class => 'inline' %>
-				-->
+
+				 <%= f.input :first_name,
+					:label => "Child's name?  ",
+					wrapper_html: { class: 'childs_name'},
+					:required => true 
+					%>
 			    <%= f.input :issues_mood, :as => :radio_buttons,:item_wrapper_class => 'inline',
 					:label => "Does your child experience mood issues, depression, or unexplained lethargy?" %>
 			    <%= f.input :issues_anxiety, as: :radio_buttons,:item_wrapper_class => 'inline',
@@ -47,7 +53,9 @@
 			    <%= f.input :issues_focus, as: :radio_buttons,:item_wrapper_class => 'inline',
 					:label => "Does he/she have focus issues or ADD/ADHD?" %>
 			 </div>
-			<!-- May want to add a Next button that take the user to the next tab (and also writes the information on this tab to a database, so that we can either (i) recover a partial state if the same person returns, or (ii) email him/her asking if he/she would like to complete the self-test ) --> 
+			<!-- May want to add a Next button that take the user to the next tab (and also writes the information on this tab to a database, so that we can either (i) recover a partial state if the same person returns, or (ii) email him/her asking if he/she would like to complete the self-test ) 
+			<button class="btn nextTab">Next</button>
+			--> 
   		</div>
 
 		<div class="tab-pane" id="diagnoses">
@@ -87,7 +95,7 @@
 			
 			<p class="submit">To submit your information, please click here. (*) </p>		
 	  	 	<div class="form-actions">
-		   		<%= f.button :submit, 'Submit'  %>
+		   		<%= f.button :submit, 'Submit' %>
 		  	</div>
 			<p class="optin">(*) By so doing, you confirm that the information provided is correct to the best of your knowledge.</p>
 		</div>

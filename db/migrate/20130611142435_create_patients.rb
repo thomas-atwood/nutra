@@ -1,6 +1,14 @@
 class CreatePatients < ActiveRecord::Migration
   def change
     create_table :patients do |t|
+      t.string  :type # mother, father, child
+      t.string  :salutation # Mr. Ms. Mrs. Dr. 
+      t.string  :first_name
+      t.string  :last_name
+      t.integer :age
+      t.integer :weight
+      t.string  :sex # "F=female, M=male"
+
       t.boolean :issues_mood
       t.boolean :issues_anxiety
       t.boolean :issues_stress
