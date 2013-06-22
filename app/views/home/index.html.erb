@@ -52,18 +52,6 @@
 	
     <!-- Flash Msgs  ———————————————————————————————————————— -->
     
-	<div id ="flash_messages">
-		<!-- <p class="notice"><## notice %></p> -->
-		<% unless flash[:error].nil? %>
-			<div id ="error" class="text-info"><%= flash[:error] %></div>
-		<% end %>
-		<% unless flash[:notice].nil? %>
-			<div id ="notice" class="text-info"><%= flash[:notice] %></div>
-		<% end %>
-		<% unless flash[:alert].nil? %>
-			<div id ="alert" class="text-info"><%= flash[:alert] %></div>
-		<% end %>
-	</div>
 
     <!-- Marketing messaging ———————————————————————————————————————— --> 
 
