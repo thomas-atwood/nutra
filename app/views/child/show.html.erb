@@ -10,7 +10,60 @@
 			$("li.child").addClass("active")
 		});
 	</script>
-	
+	<style type="text/css">
+	/* Customize the Bootstrap Carousell ————————————— */
+
+    /* Carousel base class */
+    .carousel {
+      margin-bottom: 20px;
+    }
+
+    .carousel .container {
+      position: relative;
+      z-index: 9;
+    }
+
+    .carousel-control {
+      height: 50px;
+      margin-top: 0;
+      font-size: 120px;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+      background-color: gray;
+      border: 0;
+      z-index: 10;
+    }
+
+
+    .carousel .item {
+      height: 210px;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 210px;
+    }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 200px;
+      padding: 0 20px;
+      margin-top: 100px;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+
+
+	</style>
 <% end %>
 
 <%= content_for :sidebar do %>
@@ -23,6 +76,60 @@
 <% end %>
 
 <%= content_for :main do %>
+
+	<div id="myCarousel" class="carousel slide">
+	  <ol class="carousel-indicators">
+	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#myCarousel" data-slide-to="1"></li>
+	    <li data-target="#myCarousel" data-slide-to="2"></li>
+	  </ol>
+      <div class="carousel-inner">
+	
+        <div class="item active">
+        	<%= image_tag("child/composites_630x210/composite-1.jpg") %>
+          <div class="container">
+            <div class="carousel-caption">
+				<!-- 
+              	<h4>First Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis .</p>
+				-->
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+         <%= image_tag("child/composites_630x210/composite-2.jpg") %>
+          <div class="container">
+            <div class="carousel-caption">
+				<!-- 
+           		<h4>Second Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis</p> 
+        		-->
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <%= image_tag("child/composites_630x210/composite-3.jpg") %>
+          <div class="container">
+            <div class="carousel-caption">
+				<!-- 
+            	<p>caption 3</p>
+				-->
+            </div>
+          </div>
+        </div>
+	
+      </div> <!-- end div.carousel-inner -->
+
+
+      <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		-->
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+
+    </div><!-- /.carousel -->
+
 	<section id="page_introduction">	
 	</section>
 	
