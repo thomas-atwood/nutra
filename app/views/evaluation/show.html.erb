@@ -5,12 +5,9 @@
 -->
 <!-- find a way to do this for all views in this controller, rather than one -->
 <%= content_for :head do %>
-	<script type="text/javascript">
-		jQuery(document).ready(function(){
-			$("li.evaluations").addClass("active");
-		});
-	</script>
+
 	<style>
+		.highlighted { color: red!important; }
 		p.todo { color: red; }
 		table { margin-top:20px;}
 		table.lab_results tr td:nth-child(2) { text-align:center;}
@@ -26,6 +23,14 @@
 		p.footnote { font-style:italic; font-size:11px; line-height: 13px;}
 		p.notebene { color: red;}
 	</style>
+	
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			$("li.evaluations").addClass("active");
+			$("li.profile a").addClass("highlighted");
+		});
+	</script>
+	
 <% end %>
 
 <%= content_for :sidebar do %>
