@@ -9,8 +9,10 @@
 	.email_field { margin-left: 0px; }
 	.submit { margin-top:20px;}
 	.optin { font-size: 12px; font-style: italic; }
-	.nextTab { margin-left: 340px;}
+	.nextTabLink { margin-left: 340px;}
 	div.patient_first_name label { padding-right:20px;}
+	.tab_color { color:steelblue;}
+
 
 </style>
 
@@ -20,7 +22,7 @@
 
 	<ul class="nav nav-tabs">
 		<li class="active"><a href='#problems' data-toggle='tab'>Issues</a></li>
-		<li><a href='#diagnoses' data-toggle='tab'>Diagnoses</a></li>
+		<li class="next"><a href='#diagnoses' data-toggle='tab'>Diagnoses</a></li>
 		<li><a href='#medications' data-toggle='tab'>Medications</a></li>
 		<li><a href='#clinician' data-toggle='tab'>Clinician?</a></li>
 	</ul>
@@ -52,10 +54,14 @@
 					:label => "Does he/she have an eating disorder?" %>
 			    <%= f.input :issues_focus, as: :radio_buttons,:item_wrapper_class => 'inline',
 					:label => "Does he/she have focus issues or ADD/ADHD?" %>
+				
 			 </div>
 			<!-- May want to add a Next button that take the user to the next tab (and also writes the information on this tab to a database, so that we can either (i) recover a partial state if the same person returns, or (ii) email him/her asking if he/she would like to complete the self-test ) 
-			<button class="btn nextTab">Next</button>
-			--> 
+			-->
+			<!-- <a href="#diagnoses" data-toggle="tab">Next</a> -->
+			<!-- <button class="btn nextTabLink">Next</button> -->
+			<hr>
+			<p><i>Please click the <span class='tab_color''>'Diagnoses'</span> tab above to complete the next panel of your child's Brain Health survey</i></p>
   		</div>
 
 		<div class="tab-pane" id="diagnoses">
@@ -67,7 +73,9 @@
 				:label => "Has he/she been diagnosed with bipolar disorder?" %>
 			<%= f.input :diagnosed_schizophrenia, :as => :radio_buttons,:item_wrapper_class => 'inline',
 					:label => "Has he/she been diagnosed with schizophrenia?" %>
-			<!-- 'Next' button? -->							
+			<!-- 'Next' button? -->	
+			<hr>
+			<p><i>Please click the <span class='tab_color''>'Medications'</span> tab above to complete the next panel of your child's Brain Health survey</i></p>						
 		</div>
 	
 		<div class="tab-pane" id ="medications">
@@ -79,7 +87,9 @@
 			<%= f.input :on_medication_for_depression, :as => :radio_buttons,:item_wrapper_class => 'inline',
 				:label => "Is he/she on medication for depression?" %>
 				
-			<!-- 'Next' button? -->					  	
+			<!-- 'Next' button? -->	
+			<hr>
+			<p><i>Please click the <span class='tab_color''>'Clinicians'</span> tab to complete the final panel of your child's Brain Health survey</i></p>				  	
 			 	 
 		</div>
 		
@@ -88,7 +98,7 @@
 			<div style="margin-left:40px;">
 			<p>If so, please enter his/her id here.<p>
 			<%= f.input :first_name, label: false, placeholder: 'Clinician Id', wrapper_html: { class: 'clinician_field'} %> 
-			<p>Your Brain Wellness Report will be sent to your clinician, who will discuss the results with you. </p>  	
+			<p>Your child's Brain Health Report will be sent to your clinician, who will contact you to discuss the results. </p>  	
 			</div>
 			<p class="otherwise">Otherwise, please enter your email, and the report will be sent directly to you</p>
 			<%= f.input :email, label: false, placeholder: 'Email address', wrapper_html: { class: 'email_field'} %>
@@ -97,7 +107,7 @@
 	  	 	<div class="form-actions">
 		   		<%= f.button :submit, 'Submit' %>
 		  	</div>
-			<p class="optin">(*) By so doing, you confirm that the information provided is correct to the best of your knowledge.</p>
+			<p class="optin">(*) The information you submit on your child will remain confidential to you, and will not be disclosed to anyone without your express permission. See our <span class='footer_modal_link'>'Privacy'</span> policy. </p>
 		</div>
 	
 	</div> <!-- end of class tab-content -->

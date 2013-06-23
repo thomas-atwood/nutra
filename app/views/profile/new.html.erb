@@ -2,11 +2,12 @@
 		Profile # new
 		——————————————————————————————————————————————————
 -->
-<!-- find a way to do this for all views in this controller, rather than one -->
+<!-- Do this for all views in this controller, rather than one at a time -->
 <%= content_for :head do %>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-			$("li.profile").addClass("active")
+			alert("executing document ready javascript")
+			$("li.profile").addClass("active");
 		});
 	</script>
 	

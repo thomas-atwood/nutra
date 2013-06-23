@@ -2,8 +2,8 @@
 <html>
   <head>
 	<meta charset="utf-8">
-    <title><%= content_for?(:title) ? yield(:title) : "Nutra" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Nutra" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Wired Differently" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Wired Differently" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
 
 
@@ -39,7 +39,7 @@
 					<li class="child"><%= link_to("Your Child", child_show_path) %>
 					<li class="program"><%= link_to("Program", program_show_path) %></li>				
 					<li class="profile"><%= link_to("Profile", profile_new_path) %></li>
-					<li class="evaluation"><%= link_to("Evaluations", evaluation_show_path) %></li>
+					<li class="evaluations"><%= link_to("Evaluations", evaluation_show_path) %></li>
 					<!-- <li class="supplements"><## link_to("Supplements", supplement_list_path) %></li> -->	        
 					<li class="science"><%= link_to("The Science", science_show_path) %></li>				
 	                
@@ -82,10 +82,10 @@
 							Copyright &copy; 2013 Blue Spot Wellness Inc., All rights reserved.
 							</div>
 							<div class="span6 modal_overlay_links">
-								<a data-toggle="modal" href="#aboutUs", class="btn btn-link">About Us</a>
-								<a data-toggle="modal" href="#contactUs", class="btn btn-link">Contact Us</a>
-								<a data-toggle="modal" href="#privacyPolicy", class="btn btn-link">Privacy</a>
-								<span class="pull-right"><a href="#">Back to top</a></span>
+								<a data-toggle="modal" href="#aboutUs", class="btn btn-link footer_modal_link">About Us</a>
+								<a data-toggle="modal" href="#contactUs", class="btn btn-link footer_modal_link">Contact Us</a>
+								<a data-toggle="modal" href="#privacyPolicy", class="btn btn-link footer_modal_link">Privacy</a>
+								<span class="pull-right"><a href="#" class="back_to_top_link">Back to top</a></span>
 								</p>
 							</div>
 							

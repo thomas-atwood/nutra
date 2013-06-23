@@ -2,20 +2,34 @@
 
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-
+			$("li.profile").addClass("active");
+			$(":submit").addClass('btn-primary');
 			$(":submit").click(function(){
 				alert("Thank you for completing your child's profile. One of our clinicians will contact you by email shortly.")
 			});
 			
+			/* Not working (or getting overridden (by something that returns to Home/index? ))
+			$(".nextTabLink").click(function () {
+	            alert("clicked nextTabLink");
+	      		var tabs = $('#tabselect .nav-tabs > li'),
+	                active = tabs.filter('.active'),
+	                next = active.next('li'),
+					toTab = next.length ? next.find('a') : tabs.eq(0).find('a'); 
+
+				toTab.trigger('click'); 
+	        });
+			*/			
 		});
-	</script>			
+	</script>
+
+			
 
 <% end %>
 
 <%= content_for :main do %>
 
 	<h3>Get Started: </br>
-	Complete Your Child's eHealth Profile</h3>
+	Complete Your Child's Brain Health Profile</h3>
 
 	<%= render 'form' %>
 

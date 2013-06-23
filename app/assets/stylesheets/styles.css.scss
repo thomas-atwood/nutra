@@ -54,6 +54,7 @@
   div.content {
 	margin-top:100px;
 	}
+	.highlighted { color:red!important; }
 	
 	/* Left Sidebar ( typically subnav) 
     -------------------------------------------------- */
@@ -78,6 +79,8 @@
 			padding-top: 20px;
 	}
 	.copyright { margin-top:5px; } /* to line it up with links that bring up modal overlays */
+	.footer_modal_link { color:steelblue!important; } /* override bootstrap styling */
+	.back_to_top_link { color:steelblue!important;}
 	
 	/* Modal Overlays
     -------------------------------------------------- */

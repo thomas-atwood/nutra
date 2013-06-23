@@ -7,7 +7,7 @@
 <%= content_for :head do %>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-			$("li.profile").addClass("active")
+			$("li.evaluations").addClass("active");
 		});
 	</script>
 	<style>
@@ -24,11 +24,13 @@
 		div.intro p {font-style:italic;}
 		table.relationship th { background-color: gainsboro;}
 		p.footnote { font-style:italic; font-size:11px; line-height: 13px;}
+		p.notebene { color: red;}
 	</style>
 <% end %>
 
 <%= content_for :sidebar do %>
-	<ul class="nav nav-list bs-docs-sidenav affix">
+	<!--  <ul class="nav nav-list bs-docs-sidenav affix"> -->
+	<ul class="nav nav-pills nav-stacked affix">
 		<li class="active"><a href="#topic1"><i class="icon-chevron-right"></i>Lab Test Results</a></li>
 		<li><a href="#topic2"><i class="icon-chevron-right"></i>Phase II Protocol</a></li>
 		<li><a href="#topic3"><i class="icon-chevron-right"></i>Follow-Up Testing</a></li>
@@ -41,7 +43,8 @@
 <%= content_for :main do %>
 
 	<section id="header">
-		<h2>Blue Spot Brain Wellness Report</h2>
+		<h2>Blue Spot Brain Health Report</h2>
+		<p class="notebene">We show below a sample of the report you will get if you complete your child's Brain Health Profile, and sign up for the initial evaluation.</p> <p class="notebene">Click the highlighted 'Profile' link at the top of the page to do so.<p> 
 		<p class="patient">Prepared for: Jill Freemont</p>
 		<p>Your Brain Wellness Test Report contains:</p>
 		<ul>
