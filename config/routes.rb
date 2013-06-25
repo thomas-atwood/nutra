@@ -1,4 +1,10 @@
 Nutra::Application.routes.draw do
+  resources :medications
+
+
+  resources :assessments
+
+
   resources :patients
 
 

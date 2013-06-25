@@ -11,6 +11,9 @@
 	<!--[if lt IE 9]>
 	  <script src="../assets/js/html5shiv.js"></script>
 	<![endif]-->
+	<script type="text/javascript">
+		var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+	</script>
 	<%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
@@ -39,6 +42,8 @@
 					<li class="child"><%= link_to("Your Child", child_show_path) %>
 					<li class="program"><%= link_to("Program", program_show_path) %></li>				
 					<li class="profile"><%= link_to("Profile", profile_new_path) %></li>
+					<li class="intake"><%= link_to("Intake", new_assessment_path) %></li>
+					
 					<li class="evaluations"><%= link_to("Evaluations", evaluation_show_path) %></li>
 					<!-- <li class="supplements"><## link_to("Supplements", supplement_list_path) %></li> -->	        
 					<li class="science"><%= link_to("The Science", science_show_path) %></li>

@@ -1,0 +1,327 @@
+<style>
+	.form-horizontal
+	.control-label {
+		/* width:300px; */
+	}
+
+	.clinician_field { margin-left: -40px; }
+	.otherwise { margin-top:20px;}
+	.email_field { margin-left: 0px; }
+	.submit { margin-top:20px;}
+	.optin { font-size: 12px; font-style: italic; }
+	.nextTabLink { margin-left: 340px;}
+	div.patient_first_name label { padding-right:20px;}
+	.tab_color { color:steelblue;}
+	textarea { width: 420px; } /* override bootstrap 206px setting */
+	select { width:120px } /* override bootstrap 220px setting — for date fields */
+	p.help-block {font-size:12px; font-style: italic;}
+	p.scale { padding-left:180px; font-size:12px; font-style:italic; color: steelblue; margin-top:20px; }
+
+
+</style>
+
+
+<%= simple_form_for(@assessment, :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+	<ul class="nav nav-tabs">
+		<li class="active"><a href='#child' data-toggle='tab'>Child</a></li>
+		<li class="next"><a href='#behavior' data-toggle='tab'>Symptomatic Behavior</a></li>
+		<li class="next"><a href='#medical_history' data-toggle='tab'>Medical History</a></li>
+		<li><a href='#severity' data-toggle='tab'>Severity</a></li>
+		<li><a href='#medications' data-toggle='tab'>Medications/Supplements</a></li>
+	</ul>
+
+	<div class="tab-content">
+
+			<div class="tab-pane active" id="child">
+  			
+				<%= f.input :childs_name, 
+					:label => "Child's Name" 
+					%>
+				<%= f.input :mothers_name, 
+					:label => "Mother's Name" 
+					%>
+				<%= f.input :fathers_name, 
+				:label => "Father's Name" 
+					%>
+				<%= f.input :date_of_birth, 
+					:label => "Date Of Birth", 
+					:as => :date,
+					start_year: Date.today.year - 3, # over 3 years
+			        end_year: Date.today.year - 25, # as not older than 25
+					order: [:day,:month,:year],
+					prompt: { day: 'Day', month: 'Month', year: 'Year'},
+					input_html: {:cols => '5'}
+					%>
+
+				<%= f.input :sex, 
+					:label => "Sex",
+					:as => :radio_buttons,
+					:item_wrapper_class => 'inline',
+					:collection => ["Male", "Female"]
+					%>
+			
+
+				<%= f.input :age_at_adoption, 
+					:label => "Age at Adoption",
+					:collection => 0..18
+					%>
+				<!-- 
+				<## f.input :country_adopted_from, 
+						:label => "Country adopted from" 
+					%>
+				-->
+				
+				<%= f.input :weight, 
+					:label => "Current Weight (lbs)",
+					:collection => 1..120
+					%>
+				<%= f.input :referral, 
+					:label => "Referral Source" 
+					%>
+				<%= f.input :date, 
+					:label => "Today's Date",
+					:as => :date,
+					start_year: Date.today.year, # preset this
+			        end_year: Date.today.year, #
+					order: [:day,:month,:year],
+					prompt: { day: 'Day', month: 'Month', year: 'Year'},
+					input_html: {:cols => '5'}
+					%>
+				<%= f.input :reason_for_testing, 
+						:label => "Reason for Testing" 
+					%>
+			
+			<hr>
+			<p><i>Please click the <span class='tab_color''>'Symptomatic Behavior'</span> tab above to complete the next panel of your childs Intake Assessment</i></p>
+  		</div>
+
+		<div class="tab-pane" id="behavior">
+
+			<%= f.input :anxiety, 
+				:label => "Anxiety*",
+				:hint => "(*) worries, obsessive or compulsive thought, overwhelming thoughts, disassociation, fears, incessant chattering",
+				#:as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'}} 
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :academic_function, 
+				:label => "Academic Functioning*",
+				:hint => "(*) current grade, functioning at school and any challenges.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :anger, 
+				:label => "Anger or Aggression*",
+				:hint => "(*) When does this occur, is there a target for the anger?  Please describe the aggressive response.",
+				:input_html => { :rows => 5 }	
+			%>
+			<%= f.input :attachment,
+				:label => "Attachment/Bonding*",
+				:hint => "(*) challenges in the attachment process",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :depression,
+			 	:label => "Depression*",
+				:hint => "(*) sadness, lethargy, talks of feeling “sad or blue”, how is his or her self-esteem?",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :developmental_delays,
+			 	:label => "Developmental Delays*",
+				:hint => "(*) Did your child meet his or her millstones on time? Please describe any challenges",
+				:input_html => { :rows => 5 }	
+			%>
+			<%= f.input :family,
+			 	:label => "Family Functioning*",
+				:hint => "(*) Who is currently living in the home (names and ages), have there been any recent stressors or changes in the home?",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :focus, 
+				:label => "Focus Concerns*",
+				:hint => "(*) distractibility, difficulty staying on task, day-dreaming, memorization challenges, shutting down",
+				:input_html => { :rows => 5 }	
+			%>
+			<%= f.input :hyperactivity, 
+				:label => "Hyperactivity*",
+				:hint => "(*) How frequent, what time of day is this most problematic? Please describe.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :hypervigilance, 
+				:label => "Hyper-vigilance*",
+				:hint => "(*) Is your child on high alert or does your child get “stuck” on particular topics or situations?  Please describe.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :impulsivity,
+			 	:label => "Implusivity*",
+				:hint => "(*) cognitive or behavioral impulsivity; engaging in behaviors or thoughts without thinking them through; acting on impulse.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :tantrums,
+			 	:label => "Meltdowns, Tantrums, or Rages*",
+				:hint => "(*) How frequently do these behaviors occur? Please describe.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :self_injury,
+			 	:label => "Self-Injurious Behavior*",
+				:hint => "(*) picking, scratching, cutting, head-banging, other behaviors that are self-harming.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :suicide, 
+				:label => "Suicidal or Homicidal Thoughts*",
+				:hint => "(*) Has your child talked about hurting themselves or others?",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :sleep, 
+				:label => "Sleep Disturbances*",
+				:hint => "(*) nightmares, night terrors, sleep walking, bedwetting, trouble falling asleep or staying asleep.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :sensory_sensitivity, 
+				:label => "Sensory Sensitivity*",
+				:hint => "(*) sensitivity to visual or auditory stimulation, textures and/or temperatures.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :self_soothing,
+			 	:label => "Self-Soothing Behaviors*",
+				:hint => "(*) rubbing, sucking, rocking, or any behavior that calms your child down. They may do this habitually or subconsciously (without thinking).",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :social_skills, 
+				:label => "Social Skills*",
+				:hint => "(*) How your child responds to social cues, manages boundaries with others (including appropriate touch and body language), and interaction with peers.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :trauma, 
+				:label => "Trauma History*",
+				:hint => "(*) Include age and description of stressor or trauma(s) endured.",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :other_symptoms, 
+				:label => "Other Symptoms or Behaviors:",
+				:input_html => { :rows => 5 }
+			%>
+			<hr>
+			<p><i>Please click the <span class='tab_color'>'Medical History'</span> tab above to complete the next panel of your childs Intake Assessment</i></p>
+		</div>
+		<div class="tab-pane" id="medical_history">
+
+			<%= f.input :early_care, 
+				:label => "Early Care and Developmental Milestones*",
+				:hint => "(*) if known, please include prenatal care, challenges in infancy, and delays",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :medical_history, 
+				:label => "Medical History*",
+				:hint => "(*) : Please include age of any abnormality or surgeries and describe. ",
+				:input_html => { :rows => 5 }
+			%>
+			<%= f.input :digestive_health, 
+				:label => "Digestive/Intestinal Health*",
+				:hint => "(*) history of diarrhea, constipation, acid reflux, or gastrointestinal symptoms",
+				:input_html => { :rows => 5 }
+			%>
+			
+			<%= f.input :interventions, 
+				:label => "Therapeutic and/or Psychological Interventions*",
+				:hint => "(*) include duration of program past and current; and any previous psychological testing",
+				:input_html => { :rows => 5 }
+			%>
+			
+			<%= f.input :food, 
+				:label => "Diet and Relationship with Food*",
+				:hint => "(*) Describe your child’s diet, including appetite level, cravings, allergies, abnormalities, and sensitivities.  Does your child receive a variety of proteins?  How much water does he/she drink?",
+				:input_html => { :rows => 5 }
+			
+			%>
+			<!-- 'Next' button? -->	
+			<hr>
+			<p><i>Please click the <span class='tab_color'>'Severity'</span> tab above to complete the next panel of your childs Intake Assessment</i></p>						
+		</div>
+	
+		<div class="tab-pane" id ="severity">
+			<p>Please use the following rating scale to evaluate your child’s current functioning:</p>
+			<p class="scale">&mdash; not problematic &mdash;&mdash; mildly problematic &mdash;&mdash; severely problematic  &mdash; </p>
+
+			<%= f.input :rating_anxiety, 
+				:label => "Anxiety/nervousness/worry",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10			
+			%>
+			<%= f.input :rating_acting_out, 
+				:label => "Acting-out",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_focus, 
+				:label => "Focus",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_impulsivity, 
+				:label => "Impulsivity",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_energy_level, 
+				:label => "Energy Level",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_mood, 
+				:label => "Mood",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_sensory_sensitivity, 
+				:label => "Sensory Sensitivity",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_sleep, 
+				:label => "Sleep Cycle",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_stress, 
+				:label => "Response to Stressors",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+			<%= f.input :rating_tantrums, 
+				:label => "Meltdowns or Tantrums",
+				:as => :radio_buttons,
+				:item_wrapper_class => 'inline',
+				:collection => 1..10
+			%>
+		
+				
+			<!-- 'Next' button? -->	
+			<hr>
+			<p><i>Please click the <span class='tab_color'>'Medications/Supplements'</span> tab to complete the final panel of your child's Intake Assessment</i></p>				  	
+			 	 
+		</div>
+		
+		<div class="tab-pane" id ="medications">
+			<h4>Medication and Supplement Update</h4>
+			<p>If your child’s supplements or medications have changed since you filled out the most recent online eHealth profile, please list the changes below. Otherwise, leave blank:</p>
+			<p>[ Name ] [Dosage and Duration ] [ Intention for Use ]</p>
+			
+			<p class="submit">To submit your information, please click here. (*) </p>		
+	  	 	<div class="form-actions">
+		   		<%= f.button :submit, 'Submit' %>
+		  	</div>
+			<p class="optin">(*) The information you submit on your child will remain confidential to you, and will not be disclosed to anyone without your express permission. See our <span class='footer_modal_link'>'Privacy'</span> policy. </p>
+		</div>
+	
+	</div> <!-- end of class tab-content -->
+
+<% end %>
+

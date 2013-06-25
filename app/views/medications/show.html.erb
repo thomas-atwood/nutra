@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @medication.name %>
+</p>
+
+<p>
+  <b>Dosage:</b>
+  <%= @medication.dosage %>
+</p>
+
+<p>
+  <b>Intention:</b>
+  <%= @medication.intention %>
+</p>
+
+
+<%= link_to 'Edit', edit_medication_path(@medication) %> |
+<%= link_to 'Back', medications_path %>

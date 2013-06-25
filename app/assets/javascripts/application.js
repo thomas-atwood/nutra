@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require holder
+//= require ckeditor/init
+//= require bootstrap-slider

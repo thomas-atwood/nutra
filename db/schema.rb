@@ -11,7 +11,58 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622160019) do
+ActiveRecord::Schema.define(:version => 20130625020033) do
+
+  create_table "assessments", :force => true do |t|
+    t.integer "client_id"
+    t.integer "patient_id"
+    t.string  "childs_name"
+    t.string  "mothers_name"
+    t.string  "fathers_name"
+    t.date    "date_of_birth"
+    t.string  "sex"
+    t.integer "weight"
+    t.integer "age_at_adoption"
+    t.string  "country_adopted_from"
+    t.string  "referral"
+    t.date    "date"
+    t.string  "reason_for_testing"
+    t.text    "anxiety"
+    t.text    "academic_function"
+    t.text    "anger"
+    t.text    "attachment"
+    t.text    "depression"
+    t.text    "developmental_delays"
+    t.text    "family"
+    t.text    "focus"
+    t.text    "hyperactivity"
+    t.text    "hypervigilance"
+    t.text    "impulsivity"
+    t.text    "tantrums"
+    t.text    "self_injury"
+    t.text    "suicide"
+    t.text    "sleep"
+    t.text    "sensory_sensitivity"
+    t.text    "self_soothing"
+    t.text    "social_skills"
+    t.text    "trauma"
+    t.text    "other_symptoms"
+    t.text    "early_care"
+    t.text    "medical_history"
+    t.text    "digestive_health"
+    t.text    "interventions"
+    t.text    "food"
+    t.integer "rating_anxiety"
+    t.integer "rating_acting_out"
+    t.integer "rating_focus"
+    t.integer "rating_impulsivity"
+    t.integer "rating_energy_level"
+    t.integer "rating_mood"
+    t.integer "rating_sensory_sensitivity"
+    t.integer "rating_sleep"
+    t.integer "rating_stress"
+    t.integer "rating_tantrums"
+  end
 
   create_table "clients", :force => true do |t|
     t.string "type"
@@ -48,6 +99,13 @@ ActiveRecord::Schema.define(:version => 20130622160019) do
     t.string  "zip"
     t.string  "main_phone"
     t.integer "clinic_group"
+  end
+
+  create_table "medications", :force => true do |t|
+    t.integer "patient_id"
+    t.string  "name"
+    t.string  "dosage"
+    t.string  "intention"
   end
 
   create_table "patients", :force => true do |t|
