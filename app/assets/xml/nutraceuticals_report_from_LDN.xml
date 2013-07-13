@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<report>
+	<DoctorID>103</DoctorID>
+	<DoctorName>Neurogistics Corporation</DoctorName>
+	<DateReportFinal>5/30/2013 12:30:21 AM</DateReportFinal>
+	<DateLabFinal>5/24/2013</DateLabFinal>
+	<DateReceived />
+	<DateCollected>5/24/2013</DateCollected>
+	<ReportID>10252</ReportID>
+	<CustomerID>1360079322679</CustomerID>
+	<Person>
+		<LastName>Simeone</LastName>
+		<FirstName>Brandon</FirstName>
+		<Address />
+		<DOB>2/15/2000</DOB>
+		<Age>13</Age>
+		<Gender>M</Gender>
+	</Person>
+	<Measurements>
+		<Measurement>
+			<Name>EPINEPHRINE</Name>
+			<Value><![CDATA[1.12]]></Value>
+		</Measurement>
+			<Name>NOR-EPINEPHRINE</Name>
+			<Value><![CDATA[16.42]]></Value>
+		</Measurement>
+		<Measurement>
+			<Name>DOPAMINE</Name>
+			<Value><![CDATA[347.76]]></Value>
+		<Measurement>
+			<Name>CREATININE, URINE</Name>
+			<Value><![CDATA[134]]></Value>
+		</Measurement>
+		<Measurement>
+			<Name>SEROTONIN</Name>
+			<Value><![CDATA[255.97]]></Value>
+		</Measurement>
+		<Measurement>
+			<Name>GABA</Name>
+			<Value><![CDATA[265.67]]></Value>
+		</Measurement>
+		<Measurement>
+			<Name>Glutamate</Name>
+			<Value><![CDATA[3.57]]></Value>
+		</Measurement>
+		<Measurement>
+			<Name>Histamine</Name>
+			<Value><![CDATA[26.12]]></Value>
+		</Measurement>
+	</Measurements>
+</report>	

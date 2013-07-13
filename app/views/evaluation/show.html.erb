@@ -4,8 +4,10 @@
 		——————————————————————————————————————————————————
 -->
 <!-- find a way to do this for all views in this controller, rather than one -->
-<%= content_for :head do %>
 
+
+<%= content_for :head do %>
+	
 	<style>
 		.highlighted { color: red!important; }
 		p.todo { color: red; }
@@ -69,7 +71,9 @@
 	<!-- 1 ————————————————————————————————————————————————— -->
 	<section id="topic1">
 		<h2>Your Laboratory Test Results</h2>
-		<p>Please print this for your records.  Your test results are as follows:</p>
+		<p>Please print this for your records.  Your test results are as follows:</p>	
+		<div id="radar"></div>
+	   <%= high_chart("radar", @radarchart) %>
 		<p class="table_title">Neurotransmitter Excretion Values</p>
 		<table class="table table-condensed lab_results">
 			<thead>

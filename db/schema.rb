@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625020033) do
+ActiveRecord::Schema.define(:version => 20130626231323) do
 
   create_table "assessments", :force => true do |t|
     t.integer "client_id"
@@ -106,6 +106,31 @@ ActiveRecord::Schema.define(:version => 20130625020033) do
     t.string  "name"
     t.string  "dosage"
     t.string  "intention"
+  end
+
+  create_table "neuotransmitter_reports", :force => true do |t|
+    t.string  "doctorID"
+    t.string  "doctor_name"
+    t.date    "date_report_final"
+    t.date    "date_lab_final"
+    t.date    "date_received"
+    t.date    "date_collected"
+    t.string  "reportID"
+    t.string  "customerID"
+    t.string  "patient_last_name"
+    t.string  "patient_first_name"
+    t.string  "patient_address"
+    t.string  "patient_dob"
+    t.integer "patient_age"
+    t.string  "patient_gender"
+    t.float   "epinephrine_value"
+    t.float   "norepinephrine_value"
+    t.float   "dopamine_value"
+    t.float   "creatinine_value"
+    t.float   "seratonine_value"
+    t.float   "GABA_value"
+    t.float   "glutamate_value"
+    t.float   "histamine_value"
   end
 
   create_table "patients", :force => true do |t|

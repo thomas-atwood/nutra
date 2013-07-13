@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+
 	<meta charset="utf-8">
+	
     <title><%= content_for?(:title) ? yield(:title) : "Wired Differently" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Wired Differently" %>">
+    <meta name="description" content="<%= content_for?(:fdescription) ? yield(:description) : "Wired Differently" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
 
 

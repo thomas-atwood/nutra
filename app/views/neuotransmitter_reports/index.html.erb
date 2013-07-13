@@ -1,0 +1,21 @@
+<h1>Listing neuotransmitter_reports</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @neuotransmitter_reports.each do |neuotransmitter_report| %>
+  <tr>
+    <td><%= link_to 'Show', neuotransmitter_report %></td>
+    <td><%= link_to 'Edit', edit_neuotransmitter_report_path(neuotransmitter_report) %></td>
+    <td><%= link_to 'Destroy', neuotransmitter_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Neuotransmitter report', new_neuotransmitter_report_path %>

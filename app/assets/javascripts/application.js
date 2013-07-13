@@ -16,3 +16,5 @@
 //= require holder
 //= require ckeditor/init
 //= require bootstrap-slider
+//= require highcharts
+//= require highcharts-more

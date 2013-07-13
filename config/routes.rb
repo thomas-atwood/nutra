@@ -1,4 +1,7 @@
 Nutra::Application.routes.draw do
+  resources :neuotransmitter_reports
+
+
   resources :medications
 
 
