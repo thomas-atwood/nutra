@@ -24,10 +24,9 @@ class NeuotransmitterReportsController < ApplicationController
   # GET /neuotransmitter_reports/new
   # GET /neuotransmitter_reports/new.json
   def new
-      
-      
-    @neuotransmitter_report = NeuotransmitterReport.new
-      LDN_report = Nokogiri::XML(open("LDN_neurotransmitter_report"))
+           
+    #@neuotransmitter_report = NeuotransmitterReport.new
+     # LDN_report = Nokogiri::XML(open("LDN_neurotransmitter_report"))
       
       
     respond_to do |format|
