@@ -23,7 +23,13 @@
 		div.intro p {font-style:italic;}
 		table.relationship th { background-color: gainsboro;}
 		p.footnote { font-style:italic; font-size:11px; line-height: 13px;}
-		p.notebene { color: red;}
+		.notebene { color: red;}
+		/* override bootstrap defaults */
+		.dl-horizontal {width:400px;}
+		.dl-horizontal {width: 740px!important;}
+		.dl-horizontal dt { width:120px; } /* vs 160 Bootstrap line 883 */
+		.dl-horizontal dd { margin-left:140px; } /* vs 180 Bootstrap line 885 */
+		
 	</style>
 	
 	<script type="text/javascript">
@@ -51,71 +57,99 @@
 
 	<section id="header">
 		<h2>Blue Spot Brain Health Report</h2>
-		<p class="notebene">We show below a sample of the report you will get if you complete your child's Brain Health Profile, and sign up for the initial evaluation.</p> <p class="notebene">Click the highlighted 'Profile' link at the top of the page to do so.<p> 
-		<p class="patient">Prepared for: Jill Freemont</p>
-		<p>Your Brain Wellness Test Report contains:</p>
-		<ul>
-			<li>Your laboratory test results</li>
-			<li>Your phase II protocol — supplement recommendations </li>
-			<li>Notes on the significance of follow-up testing</li>
-		</ul>
-		<p>It also contains a wealth of background information for understand your test results:</p>
-		<ul>
-			<li>Points to Remember</li>
-			<li>Neurotransmitter Ratios</li>
-			<li>Neurotransmitters</li>
-		</ul>
-		<p>Click and topic on the left to go directly to the discussion of that topic.</p>				
+		<p>We show below a sample of the report you will get if you complete your child's Brain Health Profile, and sign up for the initial evaluation. <span class="notebene">Click the highlighted 'Profile' link at the top of the page to sign up.</span><p> 
+		
 	</section>
 	
 	<!-- 1 ————————————————————————————————————————————————— -->
 	<section id="topic1">
 		<h2>Your Laboratory Test Results</h2>
-		<p>Please print this for your records.  Your test results are as follows:</p>	
-		<div id="radar"></div>
-	   <%= high_chart("radar", @radarchart) %>
-		<p class="table_title">Neurotransmitter Excretion Values</p>
-		<table class="table table-condensed lab_results">
-			<thead>
-				<th>Neurotransmitter/</br>Amino Acid</th>
-				<th>Current Results 3/27/2013</th>
-				<th>Previous Results 7/28/2012</th>
-				<th>Optimal Range</th>
-				<th>Plays a Role in: </th>
-				<th>Excitatory/ Inhibitory</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Serotonin</td><td class="normal">188</td><td class="normal">154</td><td>175-225</td><td>Sleep cycle, depression, anxiety, carbohydrate cravings, PMS </td><td>Inhibitory</td>
-				</tr>
-				<tr>
-					<td>Dopamine</td><td class="high">220</td><td class="normal">167</td><td>125-175</td><td>Focus, attention, memory, motivation/drive, mood, addictive disorders</td><td>Inhibitory/Excitatory</td>
-				</tr>
-				<tr>
-					<td>Norepinephrine</td><td class="normal">40</td><td class="normal">33</td><td>30-55</td><td>Energy, drive, stimulation, "fight or flight" response, insomni, anxiety</td><td>Excitatory</td>
-				</tr>
-				<tr>
-					<td>Epinephrine</td><td class="low">2</td><td class="low">6</td>><td>8-12</td><td>"Fight or flight" response, metabolism, energy depression, cognitive function</td><td>Excitatory</td>
-				</tr>
-				<tr>
-					<td>Norepi/Epi Ratio</td><td class="high">20</td><td class= "normal">5.5</td><td>3-6</td><td>Ratios &lt; 3 = restlessness, over-training. Ratios &gt; 7 = stress, tiredness, lack of focus, energy and motivation 'burn out'</td><td>Excitatory</td>
-				</tr>
-				<tr>
-					<td>GABA</td><td class="high">1083</td><td class="high">1558</td><td>550-750</td><td>Reduces excess stimulation</td><td>Inhibitory</td>
-				</tr>
-				<tr>
-					<td>Histamine</td><td class="normal">37</td><td class="normal">35</td><td>20-40</td><td>Responds to allergy and inflammation, low levels cause lethargy</td><td>Excitatory</td>
-				</tr>
-				<tr>
-					<td>Glutamate</td><td class="normal">13</td><td class="high">17</td><td>5-15</td><td>Agitation, sleeplessness, depression when low</td><td>Excitatory</td>
-				</tr>
-				<tr>
-					<td>Creatinine</td><td class="normal">35</td><td class="normal">48</td><td>10-250</td><td>Determines whether sample is viable for testing (hydration/dehydration)</td><td>N/A</td>
-				</tr>
 		
-					
-			</tbody>
-		</table>
+		<ul class="nav nav-tabs">
+		  <li class="active"><a href="#current" data-toggle="tab">Current</a></li>
+		  <li><a href="#previous" data-toggle="tab">Previous</a></li>
+		  <li><a href="#initial" data-toggle="tab">Initial</a></li>
+		  <li><a href="#composite" data-toggle="tab">How Have They Changed?</a></li>
+		  <li><a href="#current_tabular" data-toggle="tab">DEBUG:as Table</a></li>
+		
+		</ul>
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="current">
+				</p>The results for your most recent test panel are as follows. See the 'key' below the chart for an explanation of what the colors and blue spots mean.</p>
+				<div id="radar" style="height:700px; width:750px;"></div>
+			   <%= high_chart("radar", @radarchart) %>
+				<p><strongKey:</strong></p>
+				<dl class="dl-horizontal dl-horizontal-wide">
+					<dt>green</dt>
+					<dd>The normal range for this neurotransmitter.</dd>
+					<dt>blue dots</dt>
+					<dd>Your test results. If they are within the green bands, they are in the normal range. </br>If they are above or below the green band, then they are above or below the </br>normal range.</dd>
+				</dl>
+				<p>Mouse over any of the blue spots to see the test values, and a brief explanation of what it means if they are high or low.</p>
+			</div>
+			<div class="tab-pane" id="previous">
+				<p>The results for your previous test, done 3/8/2013, were:</p>
+				<p class="notebene">[ Radar chart goes here ]</p>
+			</div>
+			<div class="tab-pane" id="initial">
+				<p>The results for your initial test, done 1/5/2013, were:</p>
+				<p class="notebene">[ Radar chart goes here ]</p>
+			</div>
+			<div class="tab-pane" id="composite">
+				<p>A composite diagram, showing the results for all three tests, is: </p>				
+				<p>The most recent test is in dark blue; the earlier test(s) are in less saturated blue(s); results for the initial test are shown in gray. </p> 
+				<p class="notebene">[ Radar chart goes here ]</p>
+			</div>
+			<div class="tab-pane" id="current_tabular">
+				<p>The results of your most recent test are:  </p>
+				<p class="table_title">Neurotransmitter Levels</p>
+				<table class="table table-condensed lab_results">
+					<thead>
+						<th>Neurotransmitter/</br>Amino Acid</th>
+						<th>Current Results 3/27/2013</th>
+						<th>Previous Results 7/28/2012</th>
+						<th>Optimal Range</th>
+						<th>Plays a Role in: </th>
+						<th>Excitatory/ Inhibitory</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Serotonin</td><td class="normal">188</td><td class="normal">154</td><td>175-225</td><td>Sleep cycle, depression, anxiety, carbohydrate cravings, PMS </td><td>Inhibitory</td>
+						</tr>
+						<tr>
+							<td>Dopamine</td><td class="high">220</td><td class="normal">167</td><td>125-175</td><td>Focus, attention, memory, motivation/drive, mood, addictive disorders</td><td>Inhibitory/Excitatory</td>
+						</tr>
+						<tr>
+							<td>Norepinephrine</td><td class="normal">40</td><td class="normal">33</td><td>30-55</td><td>Energy, drive, stimulation, "fight or flight" response, insomni, anxiety</td><td>Excitatory</td>
+						</tr>
+						<tr>
+							<td>Epinephrine</td><td class="low">2</td><td class="low">6</td>><td>8-12</td><td>"Fight or flight" response, metabolism, energy depression, cognitive function</td><td>Excitatory</td>
+						</tr>
+						<tr>
+							<td>Norepi/Epi Ratio</td><td class="high">20</td><td class= "normal">5.5</td><td>3-6</td><td>Ratios &lt; 3 = restlessness, over-training. Ratios &gt; 7 = stress, tiredness, lack of focus, energy and motivation 'burn out'</td><td>Excitatory</td>
+						</tr>
+						<tr>
+							<td>GABA</td><td class="high">1083</td><td class="high">1558</td><td>550-750</td><td>Reduces excess stimulation</td><td>Inhibitory</td>
+						</tr>
+						<tr>
+							<td>Histamine</td><td class="normal">37</td><td class="normal">35</td><td>20-40</td><td>Responds to allergy and inflammation, low levels cause lethargy</td><td>Excitatory</td>
+						</tr>
+						<tr>
+							<td>Glutamate</td><td class="normal">13</td><td class="high">17</td><td>5-15</td><td>Agitation, sleeplessness, depression when low</td><td>Excitatory</td>
+						</tr>
+						<tr>
+							<td>Creatinine</td><td class="normal">35</td><td class="normal">48</td><td>10-250</td><td>Determines whether sample is viable for testing (hydration/dehydration)</td><td>N/A</td>
+						</tr>
+
+
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	
+		
 	</section>
 	
 	<!-- 2 ————————————————————————————————————————————————— -->

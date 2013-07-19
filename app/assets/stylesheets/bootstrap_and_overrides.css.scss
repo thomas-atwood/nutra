@@ -1,3 +1,8 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+
+.dl-horizontal {max-width:400px;}
+.dl-horizontal dt { width:120px!important; } /* vs 160 Bootstrap line 883 */
+.dl-horizontal dd { margin-left:140px!important; } /* vs 180 Bootstrap line 885 */
