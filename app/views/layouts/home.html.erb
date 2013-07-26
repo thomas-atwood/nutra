@@ -163,6 +163,9 @@
 
 	    }
     </style>
+	<style>
+		.logged-in-as { margin-top: -5px;}
+	</style>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -222,23 +225,43 @@
 	                </li>
 	                
 	              </ul>
-				  <form class="navbar-form pull-right">
-				  	<!-- 
-					<input class="span2" type="text" placeholder="Email">
-				    <input class="span2" type="password" placeholder="Password">
-					-->
-					<!--
-				    <button type="submit" class="btn">Sign in</button>
-					-->
-				  </form>
+				  <% if user_signed_in? %>
+					<div class="pull-right" style="padding-top:15px; padding-right:10px;">
+					  <!-- Logged in as <strong><%= current_user.email %></strong>. -->
+					  <%= link_to 'Edit profile', edit_user_registration_path %> |
+					  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+					</div>
+				  <% else %>
+					<div class="pull-right" style="padding-top:15px;padding-right:10px;">	  
+					  <%= link_to "Sign up", new_user_registration_path %> |
+					  <%= link_to "Login", new_user_session_path %>
+					</div>
+					 <!--			
+				  	  <form class="navbar-form pull-right">				
+						<input class="span2" type="text" placeholder="Email">
+					    <input class="span2" type="password" placeholder="Password">			
+					    <button type="submit" class="btn">Sign in</button>
+					  </form>
+					   -->
+					<% end %>
 	            </div><!--/.nav-collapse -->
 	          </div><!-- /.navbar-inner -->
 	        </div><!-- /.navbar -->
+			<% if user_signed_in? %>
+				  <p class="logged-in-as pull-right"> Logged in as <strong><%= current_user.email %></strong></p>
+			<% end %>
 
 	      </div> <!-- /.container -->
 	    </div><!-- /.navbar-wrapper -->
 	
+	<!-- Rails flash messages ————————————————————————————————— -->
+	<!-- drop them; used only by devise, and unnecessary there 
+	<p class="notice"><## notice %></p>
+	<p class="alert"><## alert %></p>
+	-->
+	
 	<!-- main (image and text overlays ) —————————————————————— -->
+	
 	<%= yield :main %>
 	
 	<!-- footer ——————————————————————————————————————————————— -->

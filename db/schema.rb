@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626231323) do
+ActiveRecord::Schema.define(:version => 20130725231540) do
 
   create_table "assessments", :force => true do |t|
     t.integer "client_id"
@@ -62,6 +62,10 @@ ActiveRecord::Schema.define(:version => 20130626231323) do
     t.integer "rating_sleep"
     t.integer "rating_stress"
     t.integer "rating_tantrums"
+  end
+
+  create_table "brands", :force => true do |t|
+    t.string "name"
   end
 
   create_table "clients", :force => true do |t|
@@ -133,6 +137,36 @@ ActiveRecord::Schema.define(:version => 20130626231323) do
     t.float   "histamine_value"
   end
 
+  create_table "neurotransmitter_test_results", :force => true do |t|
+    t.integer "patient_id"
+    t.string  "patient_name"
+    t.string  "date"
+    t.float   "seratonin"
+    t.float   "dopamine"
+    t.float   "norepinephrine"
+    t.float   "epinephrine"
+    t.float   "ratio"
+    t.float   "gaba"
+    t.float   "histamine"
+    t.float   "glutamate"
+    t.float   "creatinine"
+  end
+
+  create_table "nutraceutical_test_results", :force => true do |t|
+    t.integer "patient_id"
+    t.string  "patient_name"
+    t.date    "date"
+    t.float   "seratonin"
+    t.float   "dopamine"
+    t.float   "norepinephrine"
+    t.float   "epinephrine"
+    t.float   "ratio"
+    t.float   "gaba"
+    t.float   "histamine"
+    t.float   "glutamate"
+    t.float   "creatinine"
+  end
+
   create_table "patients", :force => true do |t|
     t.string  "type"
     t.string  "salutation"
@@ -200,6 +234,27 @@ ActiveRecord::Schema.define(:version => 20130626231323) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "supplements", :force => true do |t|
+    t.string  "bluespot_sku"
+    t.integer "tablet_size"
+    t.string  "tablet_size_uom"
+    t.integer "brand_id"
+    t.string  "brand_line"
+    t.string  "brand_sku"
+    t.string  "name"
+    t.boolean "multiple_sizes"
+    t.integer "serving_size"
+    t.integer "servings_per_container"
+    t.decimal "price",                  :precision => 5, :scale => 2
+    t.string  "image_thumbnail_URL"
+    t.string  "image_medium_URL"
+    t.text    "cart_description"
+    t.text    "full_description"
+    t.text    "product_info"
+    t.text    "ingredients"
+    t.text    "warnings"
+  end
 
   create_table "test_suites", :force => true do |t|
     t.string  "test_suite_type"

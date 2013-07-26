@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
 
 
+
+
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="../assets/js/html5shiv.js"></script>
@@ -16,12 +18,30 @@
 	<script type="text/javascript">
 		var CKEDITOR_BASEPATH = '/assets/ckeditor/';
 	</script>
-	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "application" %> 
+	<!-- sticky footer: goes to bottom of view port for short pages. Not working. Why? -->  
+	       
+	<style>
+
+		html, body {
+			height: 100%;
+		}
+		.wrapper {
+			min-height: 600px; /* versus 100% — better than nothing but sort of a hack */
+			margin: 0 auto -80px;
+		}
+		.footer, .push {
+			height: 80px;
+		}
+	
+	</style>
+
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-	
+
+
 	  	<!-- Navbar
 	    ———————————————————————————————————————————————————————— -->
 	    <div class="navbar-wrapper">
@@ -85,39 +105,43 @@
 	    ———————————————————————————————————————————————————————— -->
 		<div id="main" role="main">
       		<div class="container">
+				
         		<div class="content">
 	
+				  <div class="wrapper"> <!-- for sticky footer, but not working -->
           			<div class="row">
 						<div class="span3 sidebar">
 							<%= yield :sidebar%>
 						</div>
             			<div class="span9">
               				<!-- <## render 'layouts/messages' %> -->
+							<!-- Rails flash messages ————————————————————————————————— -->
+							<!-- Is this putting the pale brown bar on all the pages? 
+							<p class="notice"><## notice %></p>
+							<p class="alert"><## alert %></p>
+							-->
+							<!-- main page content ————————————————————————————————— -->
               				<%= yield :main %>
             			</div>
           			</div>
-
-          			<footer>
+				  </div>				<!-- for sticky footer, but not working -->
+				  <div class="push"></div>	<!-- for sticky footer, but not working -->
+					<footer>
 						<div class="row">
 							<div class="span6 copyright">
-							Copyright &copy; 2013 Blue Spot Wellness Inc., All rights reserved.
+								Copyright &copy; 2013 Blue Spot Health Inc., All rights reserved.
 							</div>
 							<div class="span6 modal_overlay_links">
-								<a data-toggle="modal" href="#aboutUs", class="btn btn-link footer_modal_link">About Us</a>
-								<a data-toggle="modal" href="#contactUs", class="btn btn-link footer_modal_link">Contact Us</a>
-								<a data-toggle="modal" href="#privacyPolicy", class="btn btn-link footer_modal_link">Privacy</a>
-								<span class="pull-right"><a href="#" class="back_to_top_link">Back to top</a></span>
-								</p>
-							</div>
-							
-		     			</div>
-						
-          			</footer>
+			 			</div>
+					</footer>
 
         		</div> <!-- ! end of .content -->
       		</div> <!--! end of .container -->
     	</div> <!--! end of #main -->
+
 		
+
+	
 		<!-- Modal Displays
 	    ———————————————————————————————————————————————————————— -->
 		<div id="aboutUs" class="modal hide fade">
@@ -169,6 +193,7 @@
 		</div>
 
 
+	
 		<!-- javascript ———————————————————————————————————————— -->
 		
 		<%= yield :end_js %>
@@ -177,7 +202,7 @@
 		<!-- Gooogle analytics ————————————————————————————————— -->
 
 		<!-- include on all pages so that we can see how
-			 people move through the site -->
+			 people move through the site 
 		<script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-33258190-1']);
@@ -192,6 +217,7 @@
 			s.parentNode.insertBefore(ga, s);
 		  })();
 		</script>
+		-->
 
 	</body>
 </html>

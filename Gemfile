@@ -1,6 +1,7 @@
 
 
 source 'https://rubygems.org'
+gem 'rails_admin', "~>0.4.5"
 # 1.9.3p362 is the current default on the Cedar stack 
 ruby '1.9.3'
 gem 'rails', '3.2.13'
@@ -31,20 +32,22 @@ gem 'jquery-rails'
 #gem "capybara", ">= 2.0.3", :group => :test
 #gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 #gem "bootstrap-sass", ">= 2.3.0.0"
-gem "devise", ">= 2.2.3"
+gem "devise", ">= 2.2.3" # was 2.2.3 but when installed piggybak started getting msgs: "You cannot specify the same gem twice with different version requirements. "
 gem "cancan", ">= 1.6.9"
-gem "rolify", ">= 3.2.0"
+#gem "rolify", ">= 3.2.0"
+gem "piggybak"
 gem "httparty"
 gem "simple_form", ">= 2.1.0"
 gem "ckeditor"
 gem "quiet_assets", ">= 1.0.2", :group => :development
-gem "figaro", ">= 0.6.3"
+#gem "figaro", ">= 0.6.3"
 gem "better_errors", ">= 0.7.2", :group => :development
 #gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "nokogiri"
 gem "xml-simple"
 gem 'lazy_high_charts'
+gem 'rails_admin', "~>0.4.5"
 
 #gem 'chartjs-ror'
 #gem "google_visualr", ">= 2.1"

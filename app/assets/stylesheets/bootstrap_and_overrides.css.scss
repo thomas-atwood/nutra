@@ -2,7 +2,11 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
-
+/* Not clear that any of this is any longer having any effect.  Why? */
 .dl-horizontal {max-width:400px;}
-.dl-horizontal dt { width:120px!important; } /* vs 160 Bootstrap line 883 */
-.dl-horizontal dd { margin-left:140px!important; } /* vs 180 Bootstrap line 885 */
+.dl-horizontal dt { width:140px!important; } /* vs 160 Bootstrap line 883 */
+.dl-horizontal dd { margin-left:160px!important; } /* vs 180 Bootstrap line 885 */
+
+.highcharts-tooltip { left:20px!important;}
+
+.highcharts-tooltip span {left:20px!important; top:20px!important;}

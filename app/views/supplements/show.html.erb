@@ -1,0 +1,69 @@
+
+<!--	——————————————————————————————————————————————————
+		Supplement # show
+		——————————————————————————————————————————————————
+-->
+<!-- find a way to do this for all views in this controller, rather than one -->
+<%= content_for :head do %>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			$("li.supplements").addClass("active")
+		});
+	</script>
+	<style>
+		div.tab-pane {padding-left:15px;}
+		div.tab-pane h3 { font-size:18px; color:steelblue; font-weight:normal;}
+		section.product_tabs { margin-top:60px;}
+
+	</style>
+<% end %>
+
+
+
+<%= content_for :sidebar do %>
+	<%= image_tag "supplements/" + @supplement.image_medium_URL %>
+<% end %>
+
+<%= content_for :main do %>
+
+	<section class="production_description">
+		<h2><%= @supplement.name %></h2>
+		<%= @supplement.full_description %>	
+	</section>
+	<section class="product_table">
+		<table class="table">
+			<th>item</th>
+			<th>Product</th>
+			<th>Serving Size</th>
+			<th>Servings/Bottle</th>
+			<th>Price</th>
+			<tr>
+				<td><%= @supplement.bluespot_sku %></td>
+				<td><%= @supplement.name %></td>
+				<td><%= @supplement.serving_size %> capsules</td>
+				<td><%= @supplement.servings_per_container%></td>
+				<td><%= number_to_currency(@supplement.price) %></td>
+			</tr>
+		</table>
+	</section>
+	<section class="product_tabs">
+		<ul class="nav nav-tabs">
+		  <li class="active"><a href="#info" data-toggle="tab">Product Information</a></li>
+		  <li><a href="#ingredients" data-toggle="tab">Ingredients</a></li>
+		  <li><a href="#warnings" data-toggle="tab">Warnings</a></li>
+		</ul>
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="info">
+				<%= raw @supplement.product_info %>
+			</div>
+			<div class="tab-pane" id="ingredients">
+				<%= raw @supplement.ingredients %>
+			</div>
+			<div class="tab-pane" id="warnings">
+				<%= raw @supplement.warnings %>
+			</div>
+		</div>
+	</section>
+
+<% end %>

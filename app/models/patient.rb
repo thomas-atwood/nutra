@@ -9,5 +9,5 @@ class Patient < ActiveRecord::Base
   has_one :e_profile # or is the data from this just folded into the patient record? no e_profile type now
   has_one :d_profile # "..."
   has_one :program # no current way of modeling a set of programs that have changed over time; may need this for outcome tracking 
-
+  has_many :test_suites
 end

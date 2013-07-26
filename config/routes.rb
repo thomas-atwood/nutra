@@ -1,64 +1,42 @@
 Nutra::Application.routes.draw do
+
+  # mount Piggybak::Engine => '/checkout', :as => 'piggybak'
+  devise_for :users 
+  
   resources :neuotransmitter_reports
-
-
   resources :medications
-
-
   resources :assessments
-
-
   resources :patients
+  resources :supplements
 
 
   get "social/parents"
-
   get "social/newsletter"
-
   get "social/story"
-
   get "social/friends"
-
   get "social/suggestions"
 
-  get "supplement/order"
-
-  get "supplement/list"
-
-  get "supplement/show"
-
   get "evaluation/show"
-
   get "evaluation/list"
 
   get "science/show"
 
   get "company/about"
-
   get "company/contact"
-
   get "company/contact_create"
-
+  
   get "consultation/new"
-
   get "consultation/create"
-
   get "consultation/show"
 
   get "child/new"
-
   get "child/create"
-
   get "child/show"
-
   get "child/list"
 
   get "profile/new"
-
   get "profile/create"
-
   get "profile/show"
-
   get "profile/edit"
 
   get "program/show"

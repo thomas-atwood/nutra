@@ -3,9 +3,25 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if user.has_role? :admin
-      can :manage, :all
-    end
+      #if user.has_role? :admin
+      #can :manage, :all
+      #end
+    # Allow users with administrative right to access the full set of piggybak actions
+      #if user && # method for user has administrative rights
+      #can :access, :rails_admin
+      #can :manage, [ #Parent Application models
+      #                ::Piggybak::Variant,
+      #                  ::Piggybak::ShippingMethod,
+      #                  ::Piggybak::PaymentMethod,
+      #                  ::Piggybak::TaxMethod,
+      #                  ::Piggybak::State,
+      #                  ::Piggybak::Country]
+
+          # can't delete orders
+      #   can #[:email, :download, :cancel, :read, :create, :update, :history, :e#xport], ::Piggybak::Order
+
+      # can :refund, ::Piggybak::Payment
+      #end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
