@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<%= include_gon %>
 	<meta charset="utf-8">
     <title><%= content_for?(:title) ? yield(:title) : "Nutra" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Nutra" %>">

@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   # to create the association between users and orders that piggybak needs
   acts_as_orderer
+  has_many :programs
+  has_many :orders
   
 end

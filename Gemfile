@@ -48,6 +48,7 @@ gem "nokogiri"
 gem "xml-simple"
 gem 'lazy_high_charts'
 gem 'rails_admin', "~>0.4.5"
+gem 'safe_yaml', "~> 0.6.3"
 
 #gem 'chartjs-ror'
 #gem "google_visualr", ">= 2.1"

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
 	<meta charset="utf-8">
 	
     <title><%= content_for?(:title) ? yield(:title) : "Wired Differently" %></title>
@@ -37,6 +36,7 @@
 	</style>
 
     <%= csrf_meta_tags %>
+
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">

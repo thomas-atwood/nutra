@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">	
+    <title><%= content_for?(:title) ? yield(:title) : "Wired Differently" %></title>
+    <meta name="description" content="<%= content_for?(:fdescription) ? yield(:description) : "Wired Differently" %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+
+
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="../assets/js/html5shiv.js"></script>
+	<![endif]-->
+	<script type="text/javascript">
+		var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+	</script>
+	<%= javascript_include_tag "application" %> 
+	<!-- sticky footer: goes to bottom of view port for short pages. Not working. Why? -->  
+	       
+	<style>
+
+		html, body {
+			height: 100%;
+		}
+		.wrapper {
+			min-height: 600px; /* versus 100% — better than nothing but sort of a hack */
+			margin: 0 auto -80px;
+		}
+		.footer, .push {
+			height: 80px;
+		}
+	
+	</style>
+
+    <%= csrf_meta_tags %>
+
+    <%= yield(:head) %>
+  </head>
+  <body class="<%= controller_name %> <%= action_name %>">
+
+
+	  	<!-- Navbar
+	    ———————————————————————————————————————————————————————— -->
+	    <div class="navbar-wrapper">
+	      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+	      <div class="container">
+
+	        <div class="navbar navbar-inverse">
+	          <div class="navbar-inner">
+	            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+	            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+	            <!--  <a class="brand" href="#">Wired Differently!</a> -->
+	            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed within .navbar-collapse.collapse. -->
+	            <div class="nav-collapse collapse">
+	              <ul class="nav">
+					<li class="home"><%= link_to("Home", root_path) %>
+					<li class="child"><%= link_to("Your Child", child_show_path) %>
+					<li class="program"><%= link_to("Program", program_show_path) %></li>				
+					<li class="profile"><%= link_to("Profile", profile_new_path) %></li>
+					<li class="intake"><%= link_to("Intake", new_assessment_path) %></li>
+					
+					<li class="evaluations"><%= link_to("Evaluations", evaluation_show_path) %></li>
+					<!-- <li class="supplements"><## link_to("Supplements", supplement_list_path) %></li> -->	        
+					<li class="science"><%= link_to("The Science", science_show_path) %></li>
+					<li class=" other dropdown">
+	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<b class="caret"></b></a>
+	                  <ul class="dropdown-menu">
+	                    <li class="parents"><%= link_to("Parents Support Group", social_parents_path) %></li>
+						<li class="newsletter"><%= link_to("Newsletter", social_newsletter_path) %></li>
+						<li class="about"><%= link_to("About", company_about_path) %></li>
+						<li class="contact"><%= link_to("Contact", company_contact_path) %></li>
+	                    <li class="divider"></li>
+	                    <li class="nav-header">Get Involved</li>
+						<li class="story"><%= link_to("Tell Your Story", social_story_path) %></li>
+						<li class="friends"><%= link_to("Tell Your Friends", social_friends_path) %></li>
+						<li class="suggestions"><%= link_to("Suggest Stuff", social_suggestions_path) %></li>
+	                  </ul>
+	                </li>				
+	                
+	              </ul>
+				  <form class="navbar-form pull-right">
+				  	<!-- 
+					<input class="span2" type="text" placeholder="Email">
+				    <input class="span2" type="password" placeholder="Password">
+					-->
+					<!-- 
+				    <button type="submit" class="btn">Sign in</button>
+					-->
+				  </form>
+	            </div><!--/.nav-collapse -->
+	          </div><!-- /.navbar-inner -->
+	        </div><!-- /.navbar -->
+
+	      </div> <!-- /.container -->
+	    </div><!-- /.navbar-wrapper -->
+	
+		<!-- Main ———————————————————————————————————————————————————————— -->
+		
+		<div id="main" role="main">
+      		<div class="container">
+				
+        		<div class="content">
+	
+				  <div class="wrapper"> <!-- for sticky footer, but not working -->
+          			<div class="row">
+						<div class="span1 sidebar">
+							<%= yield :sidebar%>
+						</div>
+            			<div class="span10">
+              				<!-- <## render 'layouts/messages' %> -->
+							<!-- Rails flash messages ————————————————————————————————— -->
+							<!-- Is this putting the pale brown bar on all the pages? 
+							<p class="notice"><## notice %></p>
+							<p class="alert"><## alert %></p>
+							-->
+							<!-- main page content ————————————————————————————————— -->
+              				<%= yield :main %>
+            			</div>
+			
+          			</div>
+				  </div>				<!-- for sticky footer, but not working -->
+				  <div class="push"></div>	<!-- for sticky footer, but not working -->
+					<footer>
+						<div class="row">
+							<div class="span6 copyright">
+								Copyright &copy; 2013 Blue Spot Health Inc., All rights reserved.
+							</div>
+							<div class="span6 modal_overlay_links">
+			 			</div>
+					</footer>
+
+        		</div> <!-- ! end of .content -->
+      		</div> <!--! end of .container -->
+    	</div> <!--! end of #main -->
+
+		
+
+	
+		<!-- Modal Displays
+	    ———————————————————————————————————————————————————————— -->
+		<div id="aboutUs" class="modal hide fade">
+			
+			<div class="modal-header">
+	    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    		<h2 style="padding-left:20px;">About Us</h2>
+	  		</div>
+	
+	  		<div class="modal-body" style="padding:20px;">
+	    		<%= render '/shared/about_us' %>
+	  		</div>	
+  			<!-- 
+			<div class="modal-footer">
+	    		<a href="#" class="btn">Close</a>
+	  		</div>
+			-->
+		</div>
+
+		<div id="privacyPolicy" class="modal hide fade">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		    <h2 style="padding-left:20px;">Privacy Policy</h2>
+		  </div>
+		  <div class="modal-body" style="padding:20px;">
+		    <%= render '/shared/privacy_policy' %>
+		  </div>
+		 <!-- 
+		  <div class="modal-footer">
+		    <a href="#" class="btn">Close</a>
+		  </div>
+		 -->
+		</div>
+
+		<div id="contactUs" class="modal hide fade">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		    <h2 style="padding-left:20px;">Contact Us</h2>
+		  </div>
+		  <div class="modal-body" style="padding:20px;">
+			<!-- <## render '/company/contact' %> -->
+		    <%= render '/shared/contact_us' %>
+		  </div>
+		  <!-- 
+		  <div class="modal-footer">
+		    <a href="#" class="btn">Close</a>
+		  </div>
+			-->
+		</div>
+
+
+	
+		<!-- javascript ———————————————————————————————————————— -->
+		
+		<%= yield :end_js %>
+	
+
+		<!-- Gooogle analytics ————————————————————————————————— -->
+
+		<!-- include on all pages so that we can see how
+			 people move through the site 
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-33258190-1']);
+		  _gaq.push(['_setDomainName', 'degreecouncil.org']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; 
+			ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+		    var s = document.getElementsByTagName('script')[0]; 
+			s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+		-->
+
+	</body>
+</html>

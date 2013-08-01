@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <title>Wired Differently &middot; Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -172,12 +173,13 @@
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
+    <!-- Fav and touch icons 
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+	-->
 
 	<%= yield :head %>
 	
@@ -206,9 +208,9 @@
 					<li><%= link_to("Your Child", child_show_path) %>
 					<li><%= link_to("Program", program_show_path) %></li>				
 					<li><%= link_to("Profile", profile_new_path) %></li>
-					<li class="evaluation"><%= link_to("Evaluations", evaluation_show_path) %></li>
-					<!-- <li class="supplements"><## link_to("Supplements", supplement_list_path) %></li> -->
-					<li><%= link_to("The Science", science_show_path) %></li>
+					<li class="evaluation"><%= link_to("Evaluation", evaluation_show_path) %></li>
+					<li class="supplements"><%= link_to("Supplements", supplements_path) %></li> 
+					<li><%= link_to("Science", science_show_path) %></li>
 					<li class="other dropdown">
 	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<b class="caret"></b></a>
 	                  <ul class="dropdown-menu">
@@ -252,7 +254,7 @@
 			<% end %>
 
 	      </div> <!-- /.container -->
-	    </div><!-- /.navbar-wrapper -->
+	</div><!-- /.navbar-wrapper -->
 	
 	<!-- Rails flash messages ————————————————————————————————— -->
 	<!-- drop them; used only by devise, and unnecessary there 

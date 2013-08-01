@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130725231540) do
+ActiveRecord::Schema.define(:version => 20130727020204) do
 
   create_table "assessments", :force => true do |t|
     t.integer "client_id"
@@ -105,6 +105,15 @@ ActiveRecord::Schema.define(:version => 20130725231540) do
     t.integer "clinic_group"
   end
 
+  create_table "line_items", :force => true do |t|
+    t.integer "order_id"
+    t.integer "how_many"
+    t.integer "supplement_id"
+    t.string  "supplement_name"
+    t.decimal "price"
+    t.integer "size"
+  end
+
   create_table "medications", :force => true do |t|
     t.integer "patient_id"
     t.string  "name"
@@ -167,6 +176,12 @@ ActiveRecord::Schema.define(:version => 20130725231540) do
     t.float   "creatinine"
   end
 
+  create_table "orders", :force => true do |t|
+    t.integer "user_id"
+    t.string  "date"
+    t.integer "duration"
+  end
+
   create_table "patients", :force => true do |t|
     t.string  "type"
     t.string  "salutation"
@@ -219,9 +234,21 @@ ActiveRecord::Schema.define(:version => 20130725231540) do
   end
 
   create_table "program_elements", :force => true do |t|
+    t.string  "name"
+    t.integer "daily_dosage"
+    t.string  "note"
+    t.integer "morning_dosage"
+    t.integer "lunch_dosage"
+    t.integer "afternoon_dosage"
+    t.integer "dinner_dosage"
+    t.integer "bed_dosage"
+    t.integer "program_id"
   end
 
   create_table "programs", :force => true do |t|
+    t.integer "number"
+    t.string  "description"
+    t.integer "user_id"
   end
 
   create_table "roles", :force => true do |t|

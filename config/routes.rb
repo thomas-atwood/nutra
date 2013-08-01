@@ -8,6 +8,7 @@ Nutra::Application.routes.draw do
   resources :assessments
   resources :patients
   resources :supplements
+  resources :orders
 
 
   get "social/parents"

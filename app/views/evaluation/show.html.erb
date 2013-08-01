@@ -172,6 +172,7 @@
 					<th>Before Bed</th>
 				</thead>
 				<tbody>
+					<% if current_user == nil || current_user.programs.all == nil %>
 					<tr><td>IH One</td><td>4 capsules</td><td>2 capsules</td><td></td><td></td><td></td></tr>
 					<tr><td>PT Synergy</td><td>1 capsule</td><td></td><td></td><td></td><td></td></tr>
 					<tr><td>GABA+</td><td>1 capsule as needed</td><td></td><td></td><td></td><td></td></tr>
@@ -180,14 +181,24 @@
 					<tr><td>Adrenal C+</td><td>2 capsules</td><td>1 capsule</td><td></td><td></td><td></td></tr>
 					<tr><td>Omega+ 780</td><td>1 capsule</td><td>1 capsule</td><td></td><td></td><td></td></tr>
 					<tr><td>Foundation Nutrients</td><td>2 capsules</td><td></td><td></td><td></td><td></td></tr>
+					<% else %>
+					<% current_user.programs.last.program_elements.all.each do |element| %>
+					<tr><td> <%= element.name%> </td><td> <%= element.morning_dosage%> </td><td> <%= element.lunch_dosage%> </td><td> <%= element.afternoon_dosage%></td><td> <%= element.dinner_dosage%></td><td> <%= element.bed_dosage%> </td></tr>
+					<% end %>
+					<% end %>
 					
 				</tbody>			
 			</table>
 			<div class="practitioners_note">
 				<p class="title">Practitioners Note:</p>
+				<% if current_user == nil || current_user.programs.all == nil %>
 				<p class="body">Jill: Methyl + will provide the necessary cofactor for norepinephrine to convert into epinephrine. Epinephrine plays a large role in energy, focus and cognition. I am hoping that the Methyl+ will help your conversion of norepi to epi. You may want to initially keep your PT Synergy at 2 capsules per day until the Methyl + has ben in place for a week or two. If you feel agitated or irritable on the full dose of PT Synergy, consider dropping it back to 1 capsule only in the a.m. Let me know if you have any questions.</p>
+				<% else %>
+				<p class="body"> <%= current_user.programs.last.description%> </p>
+				<% end %>
 			<div>		
 	</section>
+	<%= link_to("Order Now",:controller => 'orders', :action  => 'new')%>
 	
 	<!-- 3 ————————————————————————————————————————————————— -->
 	<section id="topic3">
