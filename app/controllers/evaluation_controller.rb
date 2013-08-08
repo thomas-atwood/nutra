@@ -1,5 +1,17 @@
 class EvaluationController < ApplicationController
   def show
+    
+      if current_user != nil
+
+        num = params["prescription"]
+        if num != nil
+          @program  = current_user.programs.find(num.to_i)
+        else
+          @program = current_user.programs.last
+        end
+      end
+      gon.link = params[:response]
+      
       @radarchart = LazyHighCharts::HighChart.new('graph') do |f|
       @ntr = NeurotransmitterTestResult.find(3) # how get current and one back (or all back? )
         seratonin = "

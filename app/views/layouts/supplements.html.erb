@@ -3,9 +3,16 @@
   <head>
 	<meta charset="utf-8">	
     <title><%= content_for?(:title) ? yield(:title) : "Wired Differently" %></title>
+    <%= include_gon %>
     <meta name="description" content="<%= content_for?(:fdescription) ? yield(:description) : "Wired Differently" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
 
+<!-- BEGIN FOXYCART FILES -->
+<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css" type="text/css" media="screen" charset="utf-8" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//cdn.foxycart.com/wired-different/foxycart.colorbox.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- END FOXYCART FILES -->
 
 
 

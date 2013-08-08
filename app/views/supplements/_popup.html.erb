@@ -1,0 +1,65 @@
+<!--	——————————————————————————————————————————————————
+		Supplement # popup partial
+		——————————————————————————————————————————————————
+
+
+		Hardwire a partial for a single product TSP610 initially, then get it to work for any product 
+ 		Note that this implementation was taken from supplements#show, where @supplement was defined 
+		int the controller; it won't be defined when trying to do this for any product 
+-->
+
+	<style>
+		div.tab-pane {padding-left:15px;}
+		div.tab-pane h3 { font-size:18px; color:steelblue; font-weight:normal;}
+		section.product_tabs { margin-top:20px;}
+
+	</style>
+	<div class="row">
+		<div class="span3">
+			<%= image_tag "supplements/" + supplement.image_medium_URL %>
+		</div>
+		<div class="span3" style="margin-left:-60px;">
+			<dl class="dl-horizontal">
+				<dt>Item</dt>
+				<dd><%= supplement.bluespot_sku %></dd>
+
+				<dt>Serving</dt>
+				<dd><%= supplement.serving_size %>&nbsp;capsules</dd>
+
+				<dt>Servings/Bottle</dt>
+				<dd><%= supplement.servings_per_container %></dd>
+
+				<dt>Price</dt>
+				<dd><%= number_to_currency(supplement.price) %></dd>
+			</dl>
+		</div>
+	</div>
+	
+	<!-- Not showing up: Why? ———————— -->
+	<div class="row">	
+		<section class="production_description" style="font-size:12px;padding-left:20px;">
+			<%= raw(supplement.full_description) %>	
+		</section>
+	</div>
+	
+	<div class="row">
+		<section class="product_tabs" style="padding-left:20px; font-size:12px;">
+			<ul class="nav nav-tabs">
+			  <li class="active"><a href="#info" data-toggle="tab">Product Information</a></li>
+			  <li><a href="#ingredients" data-toggle="tab">Ingredients</a></li>
+			  <li><a href="#warnings" data-toggle="tab">Warnings</a></li>
+			</ul>
+		
+			<div class="tab-content">
+				<div class="tab-pane active" id="info">
+					<%= raw supplement.product_info %>
+				</div>
+				<div class="tab-pane" id="ingredients">
+					<%= raw supplement.ingredients %>
+				</div>
+				<div class="tab-pane" id="warnings">
+					<%= raw supplement.warnings %>
+				</div>
+			</div>
+		</section>
+	</div>

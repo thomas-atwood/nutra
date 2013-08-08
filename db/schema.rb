@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130727020204) do
+ActiveRecord::Schema.define(:version => 20130801231621) do
 
   create_table "assessments", :force => true do |t|
     t.integer "client_id"
@@ -271,9 +271,9 @@ ActiveRecord::Schema.define(:version => 20130727020204) do
     t.string  "brand_sku"
     t.string  "name"
     t.boolean "multiple_sizes"
-    t.integer "serving_size"
-    t.integer "servings_per_container"
-    t.decimal "price",                  :precision => 5, :scale => 2
+    t.string  "serving_size"
+    t.integer "tablets_per_container"
+    t.decimal "price",                 :precision => 5, :scale => 2
     t.string  "image_thumbnail_URL"
     t.string  "image_medium_URL"
     t.text    "cart_description"

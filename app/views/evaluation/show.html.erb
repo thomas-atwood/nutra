@@ -156,6 +156,9 @@
 	
 	<!-- 2 ————————————————————————————————————————————————— -->
 	<section id="topic2">
+		<% if current_user == nil %>
+		<h2>This is Sample Data</h2>
+		<% end %>
 		<h2>Phase II Protocol: the Balancing Phase</h2>
 		<div class="topic_intro">
 			<p>In the second phase of your last program, excitatory support was introduced in combination with your existing inhibitory products that were begun in phase I. After reviewing your latest eHealth profile and your current neurotransmitter test levels, your new protocol was created to continue to bring your excitatory and inhibitory systems back into balance.
@@ -172,7 +175,7 @@
 					<th>Before Bed</th>
 				</thead>
 				<tbody>
-					<% if current_user == nil || current_user.programs.all == nil %>
+					<% if current_user == nil || current_user.programs.first == nil %>
 					<tr><td>IH One</td><td>4 capsules</td><td>2 capsules</td><td></td><td></td><td></td></tr>
 					<tr><td>PT Synergy</td><td>1 capsule</td><td></td><td></td><td></td><td></td></tr>
 					<tr><td>GABA+</td><td>1 capsule as needed</td><td></td><td></td><td></td><td></td></tr>
@@ -182,7 +185,17 @@
 					<tr><td>Omega+ 780</td><td>1 capsule</td><td>1 capsule</td><td></td><td></td><td></td></tr>
 					<tr><td>Foundation Nutrients</td><td>2 capsules</td><td></td><td></td><td></td><td></td></tr>
 					<% else %>
-					<% current_user.programs.last.program_elements.all.each do |element| %>
+				</br>
+					<% options = ""%>
+					<% current_user.programs.all.each do |program| %>
+					<% options << "<option>#{program.id}</option>"%>
+					<% end %>
+					<%= form_tag :controller => 'evaluation' , :action => 'show' do %>
+					<%= select_tag "prescription", options.html_safe %>
+					<%=	submit_tag "Select Prescription", class: "btn btn-primary" %>
+					<% end %>
+
+					<% @program.program_elements.all.each do |element| %>
 					<tr><td> <%= element.name%> </td><td> <%= element.morning_dosage%> </td><td> <%= element.lunch_dosage%> </td><td> <%= element.afternoon_dosage%></td><td> <%= element.dinner_dosage%></td><td> <%= element.bed_dosage%> </td></tr>
 					<% end %>
 					<% end %>
@@ -191,15 +204,31 @@
 			</table>
 			<div class="practitioners_note">
 				<p class="title">Practitioners Note:</p>
-				<% if current_user == nil || current_user.programs.all == nil %>
+				<% if current_user == nil || current_user.programs.first == nil %>
 				<p class="body">Jill: Methyl + will provide the necessary cofactor for norepinephrine to convert into epinephrine. Epinephrine plays a large role in energy, focus and cognition. I am hoping that the Methyl+ will help your conversion of norepi to epi. You may want to initially keep your PT Synergy at 2 capsules per day until the Methyl + has ben in place for a week or two. If you feel agitated or irritable on the full dose of PT Synergy, consider dropping it back to 1 capsule only in the a.m. Let me know if you have any questions.</p>
 				<% else %>
-				<p class="body"> <%= current_user.programs.last.description%> </p>
+				<p class="body"> <%= @program.description%> </p>
 				<% end %>
 			<div>		
 	</section>
-	<%= link_to("Order Now",:controller => 'orders', :action  => 'new')%>
-	
+	<%= form_tag :controller => 'orders' , :action => 'program' do %>
+	<%=	submit_tag "Create User Program to test Program Order", class: "btn btn-warning" %>
+	<% end %>
+	<%= form_tag :controller => 'orders' , :action => 'presc_order', options: {program: @program} do %>
+	<%= select_tag "duration", "<option>1 Month</option><option>2 Months</option><option>3 Months</option><option>4 Months</option>".html_safe %>
+	<%=	submit_tag "Order Prescription", class: "btn btn-warning"%>
+	<% end %>
+	<!-- This is the order module pop-up -->
+<body>
+<% if params[:response] != nil %>
+<script> 
+$(document).ready(function(){
+	$.colorbox({width:"80%", height:"80%", iframe:true, href: gon.link});
+  });
+</script>
+<% end %>
+</body>
+
 	<!-- 3 ————————————————————————————————————————————————— -->
 	<section id="topic3">
 		<h2>The Significance of Follow-up Testing</h2>
