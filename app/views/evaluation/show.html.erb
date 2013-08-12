@@ -54,6 +54,9 @@
 <% end %>
 
 <%= content_for :main do %>
+<% if current_user != nil %>
+</br>
+<% end %>
 
 	<section id="header">
 		<h2>Blue Spot Brain Health Report</h2>

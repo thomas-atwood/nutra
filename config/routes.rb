@@ -1,5 +1,7 @@
 Nutra::Application.routes.draw do
 
+  get "stats/graph"
+
   # mount Piggybak::Engine => '/checkout', :as => 'piggybak'
   devise_for :users 
   
@@ -10,7 +12,6 @@ Nutra::Application.routes.draw do
   resources :supplements
   resources :orders
   resources :supplements
-
 
   get "social/parents"
   get "social/newsletter"

@@ -50,9 +50,10 @@
 <% end %>
 
 <%= content_for :main do %>
+<% if current_user != nil %>
+</br>
+<% end %>
 	<section id="standin">
-		<p style="font-style:italic">[ Stub: Allow clients to order individual supplements in addition to ordering all of those recommended by a program? ]</p>
-
 		<table class="table">
 			<thead>
 				
@@ -62,7 +63,7 @@
 				<th>Description</th>
 				<th>Servings</th>
 				<th>Price</th>
-				<th>No<th>
+				<th >Number<th>
 			</thead>
 			<tbody>
 			<strong>
@@ -75,7 +76,7 @@
 					<td><%= s.cart_description %></td>
 					<td><%= s.tablets_per_container %></td>
 					<td><%= number_to_currency(s.price) %></td>
-			<%= form_tag :controller => 'orders' , :action => 'misc_order' %>
+			<%= form_tag({:controller => 'orders' , :action => 'misc_order'}, {:id => 'myform'})%>
 				<td><%=	number_field_tag "#{s.bluespot_sku}", nil, {:size => 1} %></td>
 				</tr>
 
@@ -93,7 +94,9 @@
 					<td></td>
 					<td colspan="2">
 					</br>
-					<%=	submit_tag "Submit", class: "btn btn-warning" %>
+		
+					<input type="button" value="Order" class="btn btn-warning" onclick="loginSubmit()">
+				
 					</button>
 					</td>
 					<td></td>
@@ -104,8 +107,6 @@
 			
 		</table>
 
-
-
 <% if params[:response] != nil %>
 <script> 
 $(document).ready(function(){
@@ -114,10 +115,37 @@ $(document).ready(function(){
 </script>
 <% end %>
 
+<% if current_user != nil %>
+<script>
+function loginSubmit(){
+	$('#myform').submit();
+}
+</script>
+<% else %>
+<script>
+function loginSubmit() {
+		$.colorbox({width:"50%", height:"80%", iframe:true, href:"/users/sign_in"});
+}
+</script>
+<% end %>
 
+<% if current_user != nil %>
+<script>
+function reload(){
+	$('#myform').submit();
+	onClosed:function(){ location.reload(true); }
+}
+</script>
+<% else %>
+<script>
+function reload(){
+	location.reload(true);
+}
+</script>
+<% end %>
+<script>
 
 	</section>
-	
 	<!-- modal displays ——————————————————————————————————————— -->
 	
 	<% @supplements.each do |s| %>

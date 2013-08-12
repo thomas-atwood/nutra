@@ -74,6 +74,10 @@
 <% end %>
 
 <%= content_for :main do %>
+<% if current_user != nil %>
+</br>
+</br>
+<% end %>
 
 	<div id="myCarousel" class="carousel slide">
 	  <ol class="carousel-indicators">
