@@ -35,7 +35,7 @@ gem 'jquery-rails', "2.3.0" # an older version; the most recent (3.0.4) one drop
 #gem "bootstrap-sass", ">= 2.3.0.0"
 gem "devise", ">= 2.2.3" # was 2.2.3 but when installed piggybak started getting msgs: "You cannot specify the same gem twice with different version requirements. "
 gem "cancan", ">= 1.6.9"
-#gem "rolify", ">= 3.2.0"
+gem "rolify", ">= 3.2.0"
 gem "activeadmin", "0.5.1" # more recent 0.6.0 depends on jquery-ui; jquery-ui was dropped from release 3.x of jquery-rails
 gem "piggybak"
 gem "httparty"
