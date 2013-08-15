@@ -10,26 +10,10 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
 			$("li.supplement").addClass("active");
-			$("td.sku").click(function(){
-				alert(this.val); /* alerting 'undefined' */
-				select_supplement = this.val	
-				$.ajax({
-				            type: "POST",
-				            url : "localhost:3000/supplements/popup",
-				            cache: false,
-				            data: select_supplement,
-				             statusCode: {
-				                 200:function() { alert("200"); },
-				                 202:function() { alert("202"); }
-				            },
-				            success: function() {  alert("Data Send!");},
-				            error: function(xhr){  alert("The error code is: "+xhr.statusText);}        
-				        });
-			});
 		});
 	</script>
 	<style>
-		/* Override Bootstrap defaults to fit in model overlay better */
+		/* Override Bootstrap defaults to fit in modal overlay better */
 		.modal-body {max-height: 500px;} /* vs Bootstrap 400, line 5249 */
 		.dl-horizontal {}
 		.dl-horizontal dt { width:140px!important; } /* vs 160 Bootstrap line 883 */
@@ -38,6 +22,11 @@
 		div.tab-pane {padding-left:15px;}
 		div.tab-pane h3 { font-size:18px; color:steelblue; font-weight:normal;}
 		section.product_tabs { margin-top:20px;}
+		
+		table#supplements_table tr td.description { width: 225px; } /* not working — here or in corresponding th */
+		table#supplements_table tr td.number_to_order input { width: 20px;} /* override boostrap line 1107: 206px; */
+		table#supplements_table tbody tr td {min-width:62px;}
+		table#supplements_table tbody tr td a img {height:60px; min-width:60px;}
 
 	</style>
 	
@@ -50,20 +39,18 @@
 <% end %>
 
 <%= content_for :main do %>
-<% if current_user != nil %>
-</br>
-<% end %>
-	<section id="standin">
-		<table class="table">
-			<thead>
-				
+
+
+		<table class="table" id="supplements_table">
+			<thead>			
 				<th style="width:80px;">Item</th>
 				<th></th>
 				<th>Name</th>
-				<th>Description</th>
+				<th style="width:225px;">Description</th>
 				<th>Servings</th>
 				<th>Price</th>
-				<th >Number<th>
+				<th>No<th>
+
 			</thead>
 			<tbody>
 			<strong>
@@ -73,31 +60,26 @@
 					<% target_div = '#modal-'+s.bluespot_sku %>
 					<td><a data-toggle="modal" href=<%= target_div %> > <%= image_tag "supplements/" + s.image_thumbnail_URL %></a></td>
 					<td><%= raw(s.name) %></td>
-					<td><%= s.cart_description %></td>
+					<td class="description"><%= s.cart_description %></td>
 					<td><%= s.tablets_per_container %></td>
 					<td><%= number_to_currency(s.price) %></td>
-			<%= form_tag({:controller => 'orders' , :action => 'misc_order'}, {:id => 'myform'})%>
-				<td><%=	number_field_tag "#{s.bluespot_sku}", nil, {:size => 1} %></td>
+					<!-- Why is this form outside of a td? Why using the field bluespot_sku rather than -->
+					<%= form_tag :controller => 'orders' , :action => 'misc_order' %>
+					<td class="number_to_order"><%=	number_field_tag "#{s.bluespot_sku}", nil, {:size => 2} %></td>
 				</tr>
 
-
-  				<% end %>
-  				
-  				</strong>
-
-
-				<tr>
+  			<% end %>
+				<!-- row containing just the submit button -->
+  				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td colspan="2">
-					</br>
-		
-					<input type="button" value="Order" class="btn btn-warning" onclick="loginSubmit()">
-				
-					</button>
+						</br>
+						<%=	submit_tag "Submit", class: "btn btn-warning" %>
+						</button>
 					</td>
 					<td></td>
 					<td></td>
@@ -107,45 +89,18 @@
 			
 		</table>
 
-<% if params[:response] != nil %>
-<script> 
-$(document).ready(function(){
-	$.colorbox({width:"80%", height:"80%", iframe:true, href: gon.link});
-  });
-</script>
-<% end %>
 
-<% if current_user != nil %>
-<script>
-function loginSubmit(){
-	$('#myform').submit();
-}
-</script>
-<% else %>
-<script>
-function loginSubmit() {
-		$.colorbox({width:"50%", height:"80%", iframe:true, href:"/users/sign_in"});
-}
-</script>
-<% end %>
 
-<% if current_user != nil %>
-<script>
-function reload(){
-	$('#myform').submit();
-	onClosed:function(){ location.reload(true); }
-}
-</script>
-<% else %>
-<script>
-function reload(){
-	location.reload(true);
-}
-</script>
-<% end %>
-<script>
+		<% if params[:response] != nil %>
+			<script> 
+				$(document).ready(function(){
+					$.colorbox({width:"80%", height:"80%", iframe:true, href: gon.link});
+  				});
+			</script>
+		<% end %>
 
-	</section>
+
+	
 	<!-- modal displays ——————————————————————————————————————— -->
 	
 	<% @supplements.each do |s| %>

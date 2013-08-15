@@ -13,38 +13,23 @@
     <meta name="description" content="<%= content_for?(:fdescription) ? yield(:description) : "Wired Differently" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
 
-<!-- BEGIN FOXYCART FILES -->
-<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css" type="text/css" media="screen" charset="utf-8" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="//cdn.foxycart.com/wired-different/foxycart.colorbox.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- END FOXYCART FILES -->
-
-
-
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  <script src="../assets/js/html5shiv.js"></script>
-	<![endif]-->
 	<script type="text/javascript">
 		var CKEDITOR_BASEPATH = '/assets/ckeditor/';
 	</script>
 	<%= javascript_include_tag "application" %> 
-	<!-- sticky footer: goes to bottom of view port for short pages. Not working. Why? -->  
-	       
+	<!-- Foxycart Files  -->
+	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="//cdn.foxycart.com/wired-different/foxycart.colorbox.js" type="text/javascript" charset="utf-8"></script>
+	<!-- end Foxycart files  -->
+	
+	<!-- sticky footer: goes to bottom of view port for short pages. Not working. Why? -->  	       
 	<style>
-
-		html, body {
-			height: 100%;
-		}
+		html, body {height: 100%;}
 		.wrapper {
 			min-height: 600px; /* versus 100% — better than nothing but sort of a hack */
 			margin: 0 auto -80px;
 		}
-		.footer, .push {
-			height: 80px;
-		}
-	
+		.footer, .push {height: 80px;}	
 	</style>
 
     <%= csrf_meta_tags %>
@@ -52,97 +37,23 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-  	 <!-- Closes modal on successful login  and submits form if logged in-->
-	<% if current_user != nil %>
-	<script>
-	parent.$('#myform').submit();
-	parent.$.fn.colorbox.close();
-	</script>
-	<% end %>
+
 
 	<!-- nav bar —————————————————————————————————————————————— -->
 
-	<div class="navbar-wrapper">
-	      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
-	      <div class="container">
-
-	        <div class="navbar navbar-inverse">
-	          <div class="navbar-inner">
-	            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-	            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	              <span class="icon-bar"></span>
-	              <span class="icon-bar"></span>
-	              <span class="icon-bar"></span>
-	            </button>
-	            <!--  <a class="brand" href="#">Wired Differently!</a> -->
-	            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed within .navbar-collapse.collapse. -->
-	            <div class="nav-collapse collapse">
-	              <ul class="nav">
-					<li ><%= link_to("Home", root_path) %>
-					<li><%= link_to("Your Child", child_show_path) %>
-					<li><%= link_to("Program", program_show_path) %></li>				
-					<li><%= link_to("Profile", profile_new_path) %></li>
-					<li class="evaluation"><%= link_to("Evaluation", evaluation_show_path) %></li>
-					<li class="supplements"><%= link_to("Supplements", supplements_path) %></li> 
-					<li><%= link_to("Science", science_show_path) %></li>
-					<li class="other dropdown">
-	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<b class="caret"></b></a>
-	                  <ul class="dropdown-menu">
-						<li class="parents"><%= link_to("Parents Support Group", social_parents_path) %></li>
-						<li class="newsletter"><%= link_to("Newsletter", social_newsletter_path) %></li>
-						<li class="about"><%= link_to("About", company_about_path) %></li>
-						<li class="contact"><%= link_to("Contact", company_contact_path) %></li>
-	                    <li class="divider"></li>
-	                    <li class="nav-header">Get Involved</li>
-						<li class="story"><%= link_to("Tell Your Story", social_story_path) %></li>
-						<li class="friends"><%= link_to("Tell Your Friends", social_friends_path) %></li>
-						<li class="suggestions"><%= link_to("Suggest Stuff", social_suggestions_path) %></li>
-	                  </ul>
-	                </li>
-	                
-	              </ul>
-				  <% if user_signed_in? %>
-					<div class="pull-right" style="padding-top:15px; padding-right:10px;">
-					  <!-- Logged in as <strong><%= current_user.email %></strong>. -->
-					  <a onClick="edit()"> Edit Profile</a> |
-					  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-					<script>
-					function edit(){    
-  					$.colorbox({width:"60%", height:"92%", iframe:true, href:"/users/edit", onClosed:function(){ location.reload(true); }});
-					}
-					</script>
-					</div>
-				  <% else %>
-					<div class="pull-right" style="padding-top:15px;padding-right:10px;">	  
-				<script>
-				function login(){    
-  					$.colorbox({width:"50%", height:"80%", iframe:true, href:"/users/sign_in", onClosed:function(){ location.reload(true); }});
-					}
-				function signup(){    
-  					$.colorbox({width:"50%", height:"80%", iframe:true, href:"/users/sign_up", onClosed:function(){ location.reload(true); }});
-					}
-				</script>
-				<a onClick="signup()"> Sign up</a> |
-				<a onClick="login()"> Login</a> 
-
-					</div>
-					 <!--			
-				  	  <form class="navbar-form pull-right">				
-						<input class="span2" type="text" placeholder="Email">
-					    <input class="span2" type="password" placeholder="Password">			
-					    <button type="submit" class="btn">Sign in</button>
-					  </form>
-					   -->
-					<% end %>
-	            </div><!--/.nav-collapse -->
-	          </div><!-- /.navbar-inner -->
-	        </div><!-- /.navbar -->
-			<% if user_signed_in? %>
-				  <p class="logged-in-as pull-right"> Logged in as <strong><%= current_user.email %></strong></p>
-			<% end %>
-
-	      </div> <!-- /.container -->
-	</div><!-- /.navbar-wrapper -->
+	<%= render "/shared/navbar_wrapper" %>
+	
+	
+	<!-- Closes modal on successful login  and submits form if logged in-->
+	<% if current_user != nil %>
+		<script>
+			parent.$('#myform').submit();
+			parent.$.fn.colorbox.close();
+		</script>
+	<% end %>
+	<% if user_signed_in? %>
+		  <p class="logged-in-as pull-right"> Logged in as <%= current_user.email %></p>
+	<% end %>
 	
 		<!-- Main ———————————————————————————————————————————————————————— -->
 		
@@ -157,12 +68,7 @@
 							<%= yield :sidebar%>
 						</div>
             			<div class="span10">
-              				<!-- <## render 'layouts/messages' %> -->
-							<!-- Rails flash messages ————————————————————————————————— -->
-							<!-- Is this putting the pale brown bar on all the pages? 
-							<p class="notice"><## notice %></p>
-							<p class="alert"><## alert %></p>
-							-->
+
 							<!-- main page content ————————————————————————————————— -->
               				<%= yield :main %>
             			</div>
@@ -183,60 +89,10 @@
       		</div> <!--! end of .container -->
     	</div> <!--! end of #main -->
 
-		
+		<!-- modal displays ———————————————————————————————————— -->
 
+		<%= render "/shared/modal_displays" %>
 	
-		<!-- Modal Displays
-	    ———————————————————————————————————————————————————————— -->
-		<div id="aboutUs" class="modal hide fade">
-			
-			<div class="modal-header">
-	    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	    		<h2 style="padding-left:20px;">About Us</h2>
-	  		</div>
-	
-	  		<div class="modal-body" style="padding:20px;">
-	    		<%= render '/shared/about_us' %>
-	  		</div>	
-  			<!-- 
-			<div class="modal-footer">
-	    		<a href="#" class="btn">Close</a>
-	  		</div>
-			-->
-		</div>
-
-		<div id="privacyPolicy" class="modal hide fade">
-		  <div class="modal-header">
-		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		    <h2 style="padding-left:20px;">Privacy Policy</h2>
-		  </div>
-		  <div class="modal-body" style="padding:20px;">
-		    <%= render '/shared/privacy_policy' %>
-		  </div>
-		 <!-- 
-		  <div class="modal-footer">
-		    <a href="#" class="btn">Close</a>
-		  </div>
-		 -->
-		</div>
-
-		<div id="contactUs" class="modal hide fade">
-		  <div class="modal-header">
-		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		    <h2 style="padding-left:20px;">Contact Us</h2>
-		  </div>
-		  <div class="modal-body" style="padding:20px;">
-			<!-- <## render '/company/contact' %> -->
-		    <%= render '/shared/contact_us' %>
-		  </div>
-		  <!-- 
-		  <div class="modal-footer">
-		    <a href="#" class="btn">Close</a>
-		  </div>
-			-->
-		</div>
-
-
 	
 		<!-- javascript ———————————————————————————————————————— -->
 		
@@ -244,24 +100,9 @@
 	
 
 		<!-- Gooogle analytics ————————————————————————————————— -->
+				
+		<%= render "shared/google_analytics" %>
 
-		<!-- include on all pages so that we can see how
-			 people move through the site 
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-33258190-1']);
-		  _gaq.push(['_setDomainName', 'degreecouncil.org']);
-		  _gaq.push(['_trackPageview']);
-
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; 
-			ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-		    var s = document.getElementsByTagName('script')[0]; 
-			s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
-		-->
 
 	</body>
 </html>

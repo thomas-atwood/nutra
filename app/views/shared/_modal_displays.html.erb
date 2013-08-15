@@ -1,0 +1,49 @@
+<!-- Modal Displays
+———————————————————————————————————————————————————————— -->
+<div id="aboutUs" class="modal hide fade">
+	
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h2 style="padding-left:20px;">About Us</h2>
+	</div>
+
+	<div class="modal-body" style="padding:20px;">
+		<%= render '/shared/about_us' %>
+	</div>	
+	<!-- 
+	<div class="modal-footer">
+		<a href="#" class="btn">Close</a>
+	</div>
+	-->
+</div>
+
+<div id="privacyPolicy" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h2 style="padding-left:20px;">Privacy Policy</h2>
+  </div>
+  <div class="modal-body" style="padding:20px;">
+    <%= render '/shared/privacy_policy' %>
+  </div>
+ <!-- 
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+  </div>
+ -->
+</div>
+
+<div id="contactUs" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h2 style="padding-left:20px;">Contact Us</h2>
+  </div>
+  <div class="modal-body" style="padding:20px;">
+	<!-- <## render '/company/contact' %> -->
+    <%= render '/shared/contact_us' %>
+  </div>
+  <!-- 
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+  </div>
+	-->
+</div>

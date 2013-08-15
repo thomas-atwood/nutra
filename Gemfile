@@ -23,7 +23,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+#gem 'jquery-rails'
+gem 'jquery-rails', "2.3.0" # an older version; the most recent (3.0.4) one dropped jquery-ui, and active_admin needs it 
 #gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 #gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
 #gem "email_spec", ">= 1.4.0", :group => :test
@@ -35,6 +36,7 @@ gem 'jquery-rails'
 gem "devise", ">= 2.2.3" # was 2.2.3 but when installed piggybak started getting msgs: "You cannot specify the same gem twice with different version requirements. "
 gem "cancan", ">= 1.6.9"
 #gem "rolify", ">= 3.2.0"
+gem "activeadmin", "0.5.1" # more recent 0.6.0 depends on jquery-ui; jquery-ui was dropped from release 3.x of jquery-rails
 gem "piggybak"
 gem "httparty"
 gem "simple_form", ">= 2.1.0"
@@ -47,7 +49,7 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "nokogiri"
 gem "xml-simple"
 gem 'lazy_high_charts'
-gem 'rails_admin', "~>0.4.5"
+#gem 'rails_admin', "~>0.4.5"
 gem 'safe_yaml', "~> 0.6.3"
 gem 'thin'
 gem 'gon'

@@ -1,0 +1,82 @@
+<div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!--  <a class="brand" href="#">Wired Differently!</a> -->
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed within .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+				<li><%= link_to("Home", root_path) %>
+				<li><%= link_to("Your Child", child_show_path) %>
+				<li><%= link_to("Program", program_show_path) %></li>				
+				<li><%= link_to("Profile", profile_new_path) %></li>
+				<li class="evaluation"><%= link_to("Evaluation", evaluation_show_path) %></li>
+				<li class="supplements"><%= link_to("Supplements", supplements_path) %></li> 
+				<li><%= link_to("Science", science_show_path) %></li>
+				<!-- 
+				<li class="other dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+					<li class="parents"><## link_to("Parents Support Group", social_parents_path) %></li>
+					<li class="newsletter"><## link_to("Newsletter", social_newsletter_path) %></li>
+					<li class="about"><## link_to("About", company_about_path) %></li>
+					<li class="contact"><## link_to("Contact", company_contact_path) %></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Get Involved</li>
+					<li class="story"><## link_to("Tell Your Story", social_story_path) %></li>
+					<li class="friends"><## link_to("Tell Your Friends", social_friends_path) %></li>
+					<li class="suggestions"><## link_to("Suggest Stuff", social_suggestions_path) %></li>
+                  </ul>
+                </li>
+				-->
+				
+                
+              </ul>
+			  <% if user_signed_in? %>
+				<div class="pull-right" style="padding-top:15px; padding-right:10px;">
+
+				  <a onClick="edit()"> Edit Profile</a> |
+				  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+				  <script>
+					function edit(){    
+  						$.colorbox({
+							width:"60%", 
+							height:"92%", 
+							iframe:true, href:"/users/edit", 
+							onClosed:function(){ location.reload(true); }
+						});
+					}
+				  </script>
+				</div>
+			  <% else %>
+				<div class="pull-right" style="padding-top:15px;padding-right:10px;">	  
+					<script>
+						function signup(){    
+		  					$.colorbox({width:"50%", height:"80%", iframe:true, href:"/users/sign_up", onClosed:function(){ location.reload(true); }});
+							}
+						function login(){    
+		  					$.colorbox({width:"50%", height:"80%", iframe:true, href:"/users/sign_in", onClosed:function(){ location.reload(true); }});
+							}						
+					</script>
+					<a onClick="signup()"> Sign up</a> |
+					<a onClick="login()"> Login</a> 
+				</div>
+				
+			  <% end %>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+		<% if user_signed_in? %>
+			  <p class="logged-in-as pull-right"> Logged in as <%= current_user.email %></p>
+		<% end %>
+
+      </div> <!-- /.container -->
+</div><!-- /.navbar-wrapper -->
