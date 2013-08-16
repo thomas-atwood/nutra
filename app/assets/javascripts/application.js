@@ -18,5 +18,5 @@
 //= require bootstrap-slider
 //= require highcharts
 //= require highcharts-more
-//= require jquery.colorbox-min.js
+
 

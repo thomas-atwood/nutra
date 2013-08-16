@@ -89,6 +89,13 @@
 			
 		</table>
 
+		<!--
+		  Submit goes to Order#new_misc (or misc_order).  That action creates a new order in the database, 
+		and redirects to Order#new  Order#new creates a query for Foxycart in the form of the URL, and then it passes that URL to Supplements#index as the parameter :responce ( retrieve in there as params[:response])).
+		Still intside the Supplement#index action, the response URL is set as gon.link to make it accessible from within the colorbox javascript function here. 
+		iframe:true allows you to open the URL from a separate website (not the one this one is running on).
+		The index will then reload.  That triggerss the on-document ready handler which brings up the colorbox. 
+		-->
 
 
 		<% if params[:response] != nil %>
